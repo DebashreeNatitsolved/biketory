@@ -21,15 +21,17 @@
   </ion-content>
    -->
 
-   <ion-header>
+   <ion-header class="back">
 <ion-navbar></ion-navbar>
      
     </ion-header>
   
   <ion-content class="grey-bg">
       <div class="big-banner">
-        
-        <img src="assets/imgs/big-banner.png" alt="" />
+        <a href="#" class="profile-icon">
+          <img src="assets/imgs/profile-icon.png">
+        </a>
+        <img src="assets/imgs/big-banner.png" alt=""/>
       </div>
       <div class="detail-box">
         <div class="user">
@@ -37,7 +39,7 @@
             <img src="assets/imgs/avtar.png" alt="" />
           </div> -->
 
-          <a (click)="editProfilePic()"><ion-icon name="create"></ion-icon></a>
+          <a (click)="editProfilePic()" class="user-edit"><ion-icon name="create"></ion-icon></a>
           <div class="avatar" *ngIf="!pathForImage(lastImage)">
             <img src="assets/imgs/avtar.png" alt="">
           </div>
@@ -82,7 +84,7 @@
                     <img *ngIf="item.productsimages.length == 0"  src="assets/imgs/camera.png" alt="">
                     <ion-card-content>
                       <h6>{{item.reg_number}}</h6>
-                      <p class="price">${{item.price}}.00</p>
+                      <p class="price">Price: ${{item.price}}.00</p>
                     </ion-card-content>
                     <ion-card-content >
                       <p class="model">Model:

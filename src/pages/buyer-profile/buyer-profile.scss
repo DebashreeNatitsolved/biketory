@@ -100,9 +100,12 @@ page-buyer-profile {
         overflow: hidden;
     }
     
+    .back .back-button{  
+        top: 0;
+    }
     
     .custom-segment{background: #3d3d3d; border:0}
-    .custom-segment .segment-button{color: #e1e1e1; font-size: 1.5rem}
+    .custom-segment .segment-button{color: #fff; font-size: 16px;}
     
     .desc{padding:7px;}
     .list {margin-bottom: 0}
@@ -113,12 +116,30 @@ page-buyer-profile {
     .segment-body .item-inner{border-top:0!important; border-bottom:0!important;}
     
         .flex-wrapper{display:flex; flex-wrap:wrap; padding:0; margin-left: -5px; margin-right: -5px;}
-        .product-holder{border:1px solid #ececec; box-shadow:none; width:47% !important; margin:1.5%!important}
+        .product-holder{border: 2px solid #d1d1d1; box-shadow:none; width:47% !important; margin:1.5%!important}
         .product-holder img{height:120px}
-        .product-holder .card-content{padding:6px; border-top:1px solid #ececec;}
-        .product-holder h6{font-family: 'calibribold'; white-space: nowrap; text-overflow:ellipsis; font-size:1.3rem}
-        .product-holder .price{font-family: 'calibribold'; color:#f56f30; font-size:1.2rem}
-        .product-holder .model{color:#595959; font-size:1.15rem}
+        .product-holder .card-content{padding:6px; border-top:1px solid #dbdbdb;}
+        .product-holder h6{font-family: 'calibribold'; white-space: nowrap; text-overflow:ellipsis; font-size:16px;}
+        .product-holder .price{font-family: 'calibribold'; color:#f56f30; font-size:16px;}
+        .product-holder .model{color:#595959; font-size:14px;}
     
-        
+        .user-edit{
+            text-align: center;
+            height: 20px;
+            position: absolute;
+            top: 5px;
+            left: 9px;
+            background: #383838;
+            border-radius: 50%;
+            z-index: 9999;
+            width: 20px;
+        }
+        .profile-icon{ 
+            position: absolute;
+            right: 3%;
+            bottom: 54%;
+        }
+        .profile-icon img{
+            width: 80%;
+        }
 }
