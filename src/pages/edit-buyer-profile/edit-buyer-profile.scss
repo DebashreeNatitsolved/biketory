@@ -4,13 +4,21 @@ page-edit-buyer-profile {
     }
     .edit-buyer{}
     .edit-buyer input{
-        padding: 12px 4px;
+        padding: 12px 20px;
         margin: 0;
         -webkit-box-shadow: 0px 0px 5px 0px rgba(227,218,227,1);
         -moz-box-shadow: 0px 0px 5px 0px rgba(227,218,227,1);
         box-shadow: 0px 0px 5px 0px rgba(227,218,227,1);
         background: #fff;
-        text-transform: capitalize;
+            text-overflow: ellipsis;
+            font-size: 14px;
+            width: 100%;
+    }
+    .text-input{
+        border: 1px solid #d2d2d2;
+        border-radius: 50px;
+        min-height: 3.7rem;
+        padding: 0 8px;
     }
     }
     

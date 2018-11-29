@@ -41,11 +41,12 @@
 					<ion-thumbnail item-start>
 					<img *ngIf="item.gear.upload" src= "{{gearImgString+item.gear.upload}}" alt="">
 					<img *ngIf="!item.gear.upload" src="assets/imgs/camera.png" alt="">
-						<a href="" class="fab-icon"><ion-icon name="heart"></ion-icon></a>
+						
 					</ion-thumbnail>
 					<h2>{{item.gear.product_name}}</h2>
 					<b><span>Price: </span>{{item.gear.price}}</b>
 					<p><span>Description</span>  {{item.gear.description}}</p>
+					<a href="" class="fab-icon"><ion-icon name="heart"></ion-icon></a>
 				
 				</ion-item>
 			</ion-list>

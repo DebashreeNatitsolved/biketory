@@ -4,11 +4,11 @@ page-fabourite {
 	.fab-list ion-item.item:last-child{border-bottom:0;}
 	.fab-list ion-thumbnail{position:relative}
 	.fab-list ion-thumbnail[item-start] {margin: 10px 10px 10px 0 !important;}
-	.fab-list ion-thumbnail img{border-radius:2px; height:80px; width:95px}
+	.fab-list ion-thumbnail img{border-radius:2px; height:80px; width:85px; object-fit: cover; margin-right: 5px; border: 2px solid #edecec; margin-bottom: 5px;}
 	.fab-icon{position:absolute; top:5px; right:5px; z-index:2; color:#ce5a5a}
-	.fab-list ion-item h2{font-size:1.1rem; line-height:1.5;  white-space:normal; margin-top:0.7rem !important; margin-bottom:0}
-	.fab-list ion-item b{font-size:1.2rem; color:#3f5485; display:block}
-	.fab-list ion-item p{font-weight:500; color:#555; font-size:1.1rem;}
+	.fab-list ion-item h2{font-size:16px;font-weight: 600; line-height:1.5;  white-space:normal; margin-top:0 !important; margin-bottom:0}
+	.fab-list ion-item b{font-size:14px; color:#3f5485; display:block}
+	.fab-list ion-item p{font-weight:500; color:#555; font-size:14px;}
 	.fab-list ion-item p span{font-weight:300}
 	.fab-list ion-item.item-block{align-items: flex-start;}
 	.scroll-content{padding: 10px !important;}
