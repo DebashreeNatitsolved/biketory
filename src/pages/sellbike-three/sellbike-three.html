@@ -1,0 +1,141 @@
+<!--
+  Generated template for the SellbikeThreePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+      <ion-title>Sell Bike</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <h4 class="mb-0 text-center text-uppercase">SELL MOTORBIKE</h4>
+    <p class="m-b-10 text-center mt-0">Create your classified ad in 4easy steps</p>
+    <form>
+      <ion-card class="ml-0 mr-0 mt-0 w-100 step-card">
+        <ion-card-content class="pl-0 pr-0">
+          <ion-grid class="p-0">
+            <ion-row>
+              <ion-col col-12 class="pl-0 pr-0">
+                <ul class="step-holder">
+                  <li>
+                    <div class="number">1</div>
+                    <p>Step 1</p>
+                  </li>
+                  <li>
+                    <div class="number">2</div>
+                    <p>Step 2</p>
+                  </li>
+                  <li class="active">
+                    <div class="number">3</div>
+                    <p>Step 3</p>
+                  </li>
+                  <li>
+                    <div class="number">4</div>
+                    <p>Step 4</p>
+                  </li>
+                </ul>
+              </ion-col>
+    
+              <ion-col col-12>
+                  <p class="text-center tio">You can also add pictures later on using a computer. </p>
+                <div class="dashed-area">
+                 
+                    <!-- <a href="javascript:void()" (click)="presentActionSheet()" class="drag">
+                        <img src="assets/imgs/camera.png" alt="" />
+                        <p> click here to upload</p>                            
+                        <ion-thumbnail>
+                        <img src="{{pathForImage(lastImage)}}"/>
+                       </ion-thumbnail>
+                      
+                      <div class="drag" *ngIf="pathForImage(lastImage)">
+                      <ion-slides pager>
+                          <ion-slide *ngFor="let image of productimages">
+                              <img *ngIf="productimages.length != 0" src="{{pathForImage(lastImage)}}" alt="">                   
+                            
+                             </ion-slide>
+                      </ion-slides>
+                      </div>
+                  </a> -->
+                 <a href="javascript:void()" (click)="presentActionSheet()" class="drag">  
+                    <img src="assets/imgs/camera.png" alt="" />
+                        <p> click here to upload</p>     </a>        
+                  <ul class="drag" *ngIf="photoarray!=''">
+                    <li *ngFor="let item of photoarray ;index as i">
+                    <img src="{{imagePath+item.name}}" alt="" />
+                    <a href="javascript:void()" (click)="remove_image(item.id)"><ion-icon name="close-circle"></ion-icon></a>
+                    </li>                    
+                    </ul>
+                             
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+  
+      <!-- <ul class="upload-list" *ngIf="bikeimages">
+        <li *ngFor="let item of bikeimages, i as index">
+          <img src="{{item.link}}" alt="" />
+          <a href="javascript:void()" (click)="remove_image(item.id,i)"><ion-icon name="close-circle"></ion-icon></a>
+        </li>
+      </ul> -->
+  
+      <ion-grid >
+        <ion-row>
+            <ion-col  text-center>
+                <button full ion-button class="text-uppercase gra" (click)="Sellbiketwo()">Back</button>
+              </ion-col>
+              <ion-col  text-center>
+                  <button full ion-button class="text-uppercase" (click)="Sellbikefour()">Next</button>
+                </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-content>
+  
+  
+  <ion-footer>
+    <ion-toolbar>
+      <div class="tabs-sell">
+        <ul>
+          <li>
+            <a href="">
+              <div class="icon">
+                <img src="../../assets/imgs/tab-icon-sell/profile-h.png" alt="" />
+              </div>
+              Profile
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="icon">
+                <img src="../../assets/imgs/tab-icon-sell/bike-h.png" alt="" />
+              </div>
+              Sell Bike
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="icon">
+                <img src="../../assets/imgs/tab-icon-sell/gear-h.png" alt="" />
+              </div>
+              Sell Gear
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="icon">
+                <img src="../../assets/imgs/tab-icon-sell/profile-h.png" alt="" />
+              </div>
+              Chats</a>
+          </li>
+        </ul>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+  
+  

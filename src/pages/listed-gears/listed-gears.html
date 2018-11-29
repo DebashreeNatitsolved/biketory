@@ -1,0 +1,45 @@
+<!--
+  Generated template for the ListedGearsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>My Listed Gears</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div *ngIf="gearlistarray">
+      
+        <div class="total" *ngFor="let gear of gearlistarray; index as i">
+            <ion-item class="bike-listing" >
+             <h2 class="title list-titel" *ngIf="gear.Makes">Make: {{gear.Makes.make_name}}</h2>
+             <h2 class="title list-titel" *ngIf="gear.Bikemodels">Model: {{gear.Bikemodels.model_name}}</h2>
+             
+             <p class="list-para"><strong>Price:</strong> <span class="bold">${{gear.price}}.00</span></p>
+             <p class="list-para" [innerHTML]="gear.description"></p>
+              <div class="button-area">
+                <button ion-button color="text-uppercase"><ion-icon name="create"></ion-icon></button> <button ion-button color="dark" (click)="deletelist(gear.id)"><ion-icon name="trash"></ion-icon></button>
+                <button ion-button color="text-uppercase" (click)="disablelist(gear.id,i)" *ngIf="gear.is_active=='Y'">Activated</button>
+                <button ion-button color="text-uppercase" (click)="disablelist(gear.id,i)" *ngIf="gear.is_active=='N'">Deactivated</button>
+              </div>
+            </ion-item>
+            <div class="bike-list-image"  *ngIf="gear.gearsimages.length ==0">
+              <img src="assets/imgs/big-banner.png" alt="" />
+            </div>
+            <div class="bike-list-image" *ngIf="gear.gearsimages.length>0">
+                <img src="{{imagepath+gear.gearsimages[0].name}}" alt="" />
+              </div>
+            
+    </div>
+          </div>
+          <div *ngIf="gearlistarray==''">
+            <p>No Result Found</p>
+            </div>
+          
+</ion-content>

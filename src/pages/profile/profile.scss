@@ -1,0 +1,127 @@
+page-profile {
+    .big-banner{
+        width:100%;
+        height: auto;
+        position: relative;
+     }
+     .big-banner .top{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 30px;
+        width:100%;
+        z-index:100;
+        padding: 0;
+    }
+    .arrow-back{
+        width:50px;
+        height: 50px;
+        color: #fff;
+    }
+    .arrow-back ion-icon{
+        color:#fff;
+        font-size:40px;
+    }
+    .fav, .share{
+        width:20px;
+        height:20px;
+        float:left;
+        color:#fff;
+        font-size:20px;
+        padding: 5px 0;
+    }
+    .share{
+        float:right;
+    }
+    .fav{
+    margin-left:25px;
+    }
+    .detail-box{	
+        height: auto;
+        position: relative;
+        z-index: 1000;
+        top: -120px;
+        margin:0 12px;
+        background:#fff;
+        border-radius: 3px;
+    }
+    .detail-box .user{
+        position: relative;
+    }
+    .detail-box .user .avatar{
+        width: 64px;
+        height: 64px;
+        position: absolute;
+        top: -28px;
+        z-index: 1001;
+        left: 15px;
+        background:#fff;
+        border-radius: 100%;
+    }
+    .detail-box .user .avatar img{
+        width: 64px;
+        height: 64px;
+        border: solid 3px #ececec;
+        border-radius: 100%;
+        
+    }
+    .detail-box .user .name{padding-top:1px;
+        margin-left:86px;
+        width:calc(100% - 100px);
+        margin-right:15px;
+    }
+    .detail-box .user .name h2{
+        font-size:18px;
+        color:#202020;
+        margin-bottom:0;
+        font-weight: 600;
+        margin-top:10px;
+    }
+    .detail-box .user .name p .mobile{display: inline-block; width:18px; height:18px; float: left; margin-right: 5px}
+    .detail-box .user .name p{
+        margin-top:0;
+        font-size:13px;
+        color:#606060;
+    }
+    .verify{width:14px; height:14px}
+    .detail-box .user .name p span{
+        float:right;
+    }
+    .detail-box .user .name p span button{
+        padding: 5px 10px !important; font-size:13px;
+    }
+    button{
+        padding: 5px 20px !important;
+        height: 30px  !important;
+        top:-15px;
+    }
+    .grey-bg{
+        background: #eeeeee;
+        overflow: hidden;
+    }
+
+    .bar-button-default{
+        top: 0px!important;
+    }
+    
+    
+    .custom-segment{background: #3d3d3d; border:0}
+    .custom-segment .segment-button{color: #e1e1e1; font-size: 1.5rem}
+    
+    .desc{padding:7px;}
+    .list {margin-bottom: 0}
+    .segment-body .item {padding-left: 0; border-top:0!important; border-bottom:0!important;}
+    .segment-body .item .item-inner{padding-right: 0}
+    .segment-body h4{font-family: 'calibribold'; font-size:1.8rem !important; text-transform: uppercase}
+    .segment-body .input-wrapper .label{margin-right:0}
+    .segment-body .item-inner{border-top:0!important; border-bottom:0!important;}
+    
+        .flex-wrapper{display:flex; flex-wrap:wrap; padding:0; margin-left: -5px; margin-right: -5px;}
+        .product-holder{border:1px solid #ececec; box-shadow:none; width:47% !important; margin:1.5%!important}
+        .product-holder img{height:120px}
+        .product-holder .card-content{padding:6px; border-top:1px solid #ececec;}
+        .product-holder h6{font-family: 'calibribold'; white-space: nowrap; text-overflow:ellipsis; font-size:1.3rem}
+        .product-holder .price{font-family: 'calibribold'; color:#f56f30; font-size:1.2rem}
+        .product-holder .model{color:#595959; font-size:1.15rem}
+    
+}

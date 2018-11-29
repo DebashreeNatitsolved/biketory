@@ -1,0 +1,163 @@
+<ion-header>
+    <ion-navbar>
+      <ion-buttons start>
+        <!-- <button ion-button icon-only>
+          <ion-icon name="arrow-back"></ion-icon>
+        </button> -->
+      </ion-buttons>
+      <ion-title>Details</ion-title>
+      <ion-buttons end *ngIf="user_exists==1">
+        <button ion-button icon-only  *ngIf="wish==0" (click)="send_wishelist()">
+          <ion-icon name="heart" *ngIf="!wish"  ></ion-icon>
+          
+        </button>
+        <button ion-button icon-only *ngIf="wish==1" (click)="send_wishelist()">
+          
+          <ion-icon name="heart" isActive="true" style="color: red;" *ngIf="wish"></ion-icon>
+          
+        </button>
+        <button ion-button icon-only  (click)="shareInfo()">
+          
+          
+          <ion-icon name="share" ></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-slides pager *ngIf="bikeimages">
+    
+      <ion-slide *ngFor="let item of bikeimages">
+        <div class="big-banner">
+          
+          <img src="{{image_link + item.name}}" alt="" />
+        </div>
+        
+      </ion-slide>
+    
+  
+    </ion-slides>
+    <ion-slides pager *ngIf="!bikeimages">
+    
+        <ion-slide >
+          <div class="big-banner">
+            
+              <img src="assets/imgs/camera.png" alt="">
+          </div>
+          
+        </ion-slide>
+      
+    
+      </ion-slides>
+
+   
+
+
+    
+    <div class="detail-box">
+      <div class="user">
+        <div class="pro-area">
+          <div class="avatar">
+            <img *ngIf="user_val.pimg" src="{{user_image_link + 'thumb_'+user_val.pimg}}">
+                <img *ngIf="!user_val.pimg" src="assets/imgs/avtar.png">
+          </div>
+          <div class="name">
+            <h2 *ngIf="details.product_name">{{details.product_name}}</h2>
+            <p> </p>
+          </div>
+        </div>
+        <ion-grid>
+
+            <ion-row>
+                <ion-col col-6>
+                  <button ion-button round block *ngIf="user_exists==0" (click)="loginAlert()">Add To Cart</button>
+                </ion-col>
+                <ion-col col-6>
+                  <button ion-button outline round block *ngIf="user_exists==0" (click)="reviewAlert()"> Review</button>
+                </ion-col>
+              </ion-row> 
+
+          <ion-row>
+            <ion-col col-6>
+              <button ion-button round block *ngIf="user_exists==1"  (click)="add_cart()">Add To Cart</button>
+            </ion-col>
+            <ion-col col-6>
+              <button ion-button outline round block *ngIf="user_exists==1"  (click)="review()"> Review</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      
+      
+      
+      <div class="desc">
+        <div class="price">
+          <h2>$ {{details.price}}</h2>
+          <!-- <p>{{details.year}} - {{details.make}} , {{details.model}}</p> -->
+        </div>
+      
+        <div class="price">
+          <h5> <b>Details</b> </h5>
+          <ion-item class="pl-0">
+             Category:
+            <div class="m-0" item-end>{{category_name}}</div>
+          </ion-item>
+          <ion-item class="pl-0">
+             Brand:
+            <div class="m-0" item-end>{{brand_name}}</div>
+          </ion-item>
+          <ion-item class="pl-0">
+            Size:
+            <div class="m-0" item-end>{{size}}</div>
+          </ion-item>
+          <!-- <ion-item class="pl-0" *ngIf="colour">
+             Colour:
+            <div class="m-0" item-end *ngFor="let item1 of colour">{{item1.hexcode}}</div>
+          </ion-item> -->
+          <ion-item class="pl-0">
+              Description:
+              <div class="m-0" item-end>{{details.description}}</div>
+            </ion-item>      
+        </div>
+
+
+        
+        <div class="price">
+          <h5> <b>Review & Rating</b> </h5>                                   
+          <ion-list *ngFor="let itemr of review_data ; let i = index" >
+            <ion-item>
+              <ion-avatar item-start>
+                <img *ngIf="itemr.user.pimg" src="{{user_image_link + 'thumb_'+itemr.user.pimg}}">
+                <img *ngIf="!itemr.user.pimg" src="../../assets/imgs/avtar.png">
+              </ion-avatar>
+              <h3>{{itemr.user.first_name}}  {{itemr.user.last_name}}</h3>
+              <p>{{itemr.review}}</p>
+              <!-- <p>{{ratings(itemr.review,i)}}</p> -->
+              <!-- <span>{{itemr.rating}}</span> -->
+              <ion-icon name="star" *ngFor="let its of itemr.rat_data" style="color: #ffb400"></ion-icon>
+              <ion-icon name="star-outline" *ngFor="let its of itemr.rat_data_null"></ion-icon>
+            </ion-item>
+          </ion-list>
+         
+  
+        </div>
+
+
+        <!-- <div class="price">
+        <div class="map"><img src="../../assets/imgs/map.jpg" alt="" /></div>
+        <h3>4 Km Away</h3>
+        <p>Citycenter, Salt lake City, California,</p>
+        </div> -->
+        <div style="height: 60px;">
+         
+        </div>
+      </div>
+      
+    </div>
+  
+    
+    
+  </ion-content>
+ 
+  

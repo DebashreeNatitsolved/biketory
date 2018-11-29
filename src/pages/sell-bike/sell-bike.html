@@ -1,0 +1,48 @@
+<!--
+  Generated template for the SellBikePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sell Bike</ion-title>
+  </ion-navbar>
+	
+</ion-header>
+
+
+<ion-content>
+    <!-- <ion-card>
+        <ion-card-content text-center>
+            CHOOSE YOUR BIKE MODEL
+        </ion-card-content>
+      </ion-card> -->
+
+<!-- <ion-content class="flex-wrapper"> 
+    <ion-card class="ml-0 mr-0 mt-0 w-100 product-holder"  *ngFor="let item of bikeArray">    
+      <ion-card-content>     
+          <h6>Model Name: {{item.make_name}}</h6>
+        <h6>Product Id: {{item.id}}</h6>
+      <button ion-button item-end (click)="goToBikeResult(item.id)" >View</button>     
+    </ion-card-content>   
+    </ion-card>
+  </ion-content> -->
+  <ion-content class="flex-wrapper">
+    <!-- <ion-card>
+      <ion-card-content text-center>CHOOSE YOUR BIKE MODEL</ion-card-content>
+    </ion-card> -->
+  
+    <ion-card class="ml-0 mr-0 mt-0 w-100 product-holder"  *ngFor="let item of bikeArray">
+      <ion-card-content>
+       <button style="width:100%"  (click)="bikeResult(item.id)"><ion-thumbnail item-start >
+        <img *ngIf="item.path.length != 0" src="assets/imgs/bike.png"  alt="">
+        <img *ngIf="item.path.length == 0" src="assets/imgs/camera.png" alt="">
+       </ion-thumbnail></button> 
+        <h6 text-center>{{item.make_name}}</h6>
+        <!-- <h6>Product Id: {{item.id}}</h6> -->
+        <button ion-button full (click)="goToBikeResult(item.id)">View</button>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>

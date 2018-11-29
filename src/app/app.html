@@ -1,1 +1,218 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<!-- <ion-nav [root]="rootPage"></ion-nav> -->
+<ion-split-pane when="isLarge">
+
+    
+    <ion-menu [content]="content" id="loggedOutMenu">
+  
+      <ion-header>
+        <ion-item class="side-bar-header" *ngIf="user_exist==1">
+          <ion-thumbnail item-start>
+            <img src="https://cap.stanford.edu/profiles/viewImage?profileId=19141&type=square&ts=1509532892453">
+          </ion-thumbnail>
+          <h2>{{firstname}}</h2>
+          <!-- <p>Personal balance $0.00</p> -->
+        </ion-item>
+      </ion-header>
+     
+	<ion-content >
+		<ion-card class="sidepanel-list">
+
+				<ion-item menuClose (click)="login()" *ngIf="user_exist==0">
+						<ion-icon name="log-in"  item-start></ion-icon> Sign-In/Sign-Up
+				</ion-item>
+		
+        	<!-- <ion-item menuClose (click)="sellbike()" *ngIf="istype == 2">
+				<ion-icon name="document" item-start ></ion-icon> Add Bike
+			</ion-item>
+			<ion-item menuClose (click)="addgear()" *ngIf="istype == 2">
+				<ion-icon name="document" item-start ></ion-icon> Add Gear
+			</ion-item> -->
+		
+		
+
+		 <ion-item menuClose   *ngIf="user_exist==0"> <ion-icon class="marginright" name="information-circle" item-start></ion-icon>
+			About
+	 </ion-item>
+	 <ion-item menuClose  *ngIf="user_exist==0"> <ion-icon class="marginright"  name="help-circle" item-start></ion-icon>
+		FAQ
+ </ion-item>
+
+ <ion-item menuClose *ngIf="user_exist==0"> <ion-icon class="marginright" name="paper" item-start></ion-icon>
+	Promotions & News
+</ion-item>
+
+<ion-item menuClose   *ngIf="user_exist==0"> <ion-icon class="marginright" name="lock" item-start></ion-icon>
+	Privacy Policy
+</ion-item>
+
+<ion-item menuClose  *ngIf="user_exist==0"> <ion-icon class="marginright" name="list-box"  item-start></ion-icon>
+	Terms & Condidtions
+</ion-item>
+
+
+
+
+
+
+
+
+		
+	 <!-- <ion-item menuClose (click)="change_password()"> <ion-icon class="marginright" name="create" item-start></ion-icon>
+	Change Password
+ </ion-item>
+
+			<ion-item menuClose *ngIf="istype==2" (click)="post()"> <ion-icon class="marginright" name="list-box" item-start></ion-icon>
+				 My Post
+			</ion-item>
+			<ion-item menuClose *ngIf="istype==2" (click)="mygear()"><ion-icon class="marginright"  name="cog" item-start></ion-icon>
+				My Gear
+		 </ion-item>
+		 <ion-item menuClose *ngIf="ist	ype==1" (click)="mycart()" ><ion-icon class="marginright" name="cart" item-start></ion-icon>
+				My Cart
+		 </ion-item>
+		 <ion-item menuClose (click)="myorder()" ><ion-icon class="marginright" name="cube" item-start></ion-icon>
+			My Order
+	 </ion-item>
+
+	 	 <ion-item menuClose *ngIf="istype==1" (click)="mywishlist()"><ion-icon class="marginright" name="heart" item-start></ion-icon>
+			My Wishlist
+	 </ion-item> -->
+
+		
+	 
+	
+	
+		<ion-item menuClose (click)="home()" *ngIf="user_exist==1">
+						<ion-icon class="marginright" name="home" item-start></ion-icon> Home
+				</ion-item>
+
+				<ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright"  name="contact"  item-start></ion-icon>
+		My Account
+	</ion-item>
+	<ion-item-group submenu [class.visible]="showSubmenu" *ngIf="user_exist==1">
+    	<ion-item menuClose  submenu-item class="padding-left-50" (click)="mywishlist()" > <ion-icon class="mt-5" name="heart" ></ion-icon> Wishlist</ion-item>
+		<ion-item menuClose  submenu-item class="padding-left-50" (click)="mylistedbikes()" > <ion-icon class="mt-5" name="heart" ></ion-icon> Listed Bikes</ion-item>
+		<ion-item menuClose  submenu-item class="padding-left-50" (click)="mylistedgears()" > <ion-icon class="mt-5" name="heart" ></ion-icon> Listed Gears</ion-item>
+		<ion-item submenu-item  menuClose class="padding-left-50" (click)="recentView()"> <ion-icon class="mt-5"  name="eye"></ion-icon> Recently Viewed</ion-item>
+		<ion-item  menuClose (click)="myorder()"submenu-item class="padding-left-50"> <ion-icon class="mt-5" name="list-box"></ion-icon>  Order History</ion-item>
+  </ion-item-group>
+
+	<ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright" name="mail" item-start></ion-icon>
+		Communication
+	</ion-item>
+	<ion-item-group submenu [class.visible]="showSubmenu" *ngIf="user_exist==1">
+    	<ion-item submenu-item class="padding-left-50"> <ion-icon class="mt-5" name="archive"></ion-icon> Inbox</ion-item>
+		<ion-item submenu-item class="padding-left-50"> <ion-icon class="mt-5" name="chatboxes"></ion-icon>  Chat Box</ion-item>
+		
+  </ion-item-group>
+
+
+
+	<ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright" name="settings" item-start></ion-icon>
+		Settings
+	</ion-item>
+
+	<ion-item-group submenu [class.visible]="showSubmenu" *ngIf="user_exist==1">
+    	<ion-item menuClose (click)="goToEditPage()" submenu-item class="padding-left-50"> <ion-icon class="mt-5" name="create"></ion-icon> Edit Profile</ion-item>
+		<ion-item menuClose (click)="change_password()" submenu-item class="padding-left-50"> <ion-icon class="mt-5" name="create"></ion-icon> Change Password</ion-item>
+		
+  </ion-item-group>
+
+
+			<ion-item menuClose (click)="logout()" *ngIf="user_exist==1">
+	            <ion-icon name="power"   item-start></ion-icon> Log out
+					</ion-item>
+					
+
+					<ion-item menuClose   *ngIf="user_exist==1"> <ion-icon class="marginright" name="information-circle" item-start></ion-icon>
+						About
+				 </ion-item>
+				 <ion-item menuClose  *ngIf="user_exist==1"> <ion-icon class="marginright" name="help-circle" item-start></ion-icon>
+					FAQ
+			 </ion-item>
+			
+			 <ion-item menuClose  *ngIf="user_exist==1"> <ion-icon class="marginright" name="paper" item-start></ion-icon>
+				Promotions & News
+			</ion-item>
+			
+			<ion-item menuClose   *ngIf="user_exist==1"> <ion-icon class="marginright" name="lock" item-start></ion-icon>
+				Privacy Policy
+			</ion-item>
+			
+			<ion-item menuClose  *ngIf="user_exist==1"> <ion-icon class="marginright" name="list-box" item-start></ion-icon>
+				Terms & Condidtions
+			</ion-item>
+			
+
+        </ion-card>
+      </ion-content>
+
+      
+  
+    </ion-menu>
+  
+    <!-- <ion-header *ngIf="!headerIsHidden">
+       <ion-toolbar *ngIf="showSearchbar">
+        <ion-searchbar  *ngIf="showSearchbar"
+      [showCancelButton]="true"
+      [(ngModel)]="myInput"
+      (input)="search_favourite($event)"
+      (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+      </ion-toolbar> 
+      
+      <ion-navbar *ngIf="!showSearchbar">
+      <ion-title style="text-align: center;">Favour</ion-title>
+      <ion-buttons end >
+        <button  ion-button icon-only (click)="toggleSearchbar()">
+          <ion-icon name="search"></ion-icon>
+        </button>
+        </ion-buttons>
+      </ion-navbar>
+    </ion-header> -->
+  
+    <!-- main navigation -->
+    <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main name="app"></ion-nav>
+		<ion-footer *ngIf="!footerIsHidden" >
+			<ion-toolbar>
+				<div class="tabs-sell">
+					<ul>
+						<li>
+							<a href="javascript:void(0)" >
+								<div class="icon">
+									<img src="assets/imgs/tab-icon-sell/promotion.png" alt="" />
+								</div>
+								Promotion
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" (click)="sellbikeNew()">
+								<div class="icon Bike">
+									<img src="assets/imgs/tab-icon-sell/bike-h.png" alt="" />
+								</div>
+								Sell Bike
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" (click)="gogear()">
+								<div class="icon">
+									<img src="assets/imgs/tab-icon-sell/sell-gear.png" alt="" />
+								</div>
+								Sell Gear
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" (click)="myProfile()">
+								<div class="icon">
+									<img src="assets/imgs/tab-icon-sell/my-ac.png" alt="" />
+								</div>
+								My Account</a>
+						</li>
+						<div *ngIf="user_exist==1" class="count">2</div>
+					</ul>
+				</div>
+			</ion-toolbar>
+		</ion-footer>
+		
+  </ion-split-pane>
+  

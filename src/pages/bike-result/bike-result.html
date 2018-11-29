@@ -1,0 +1,60 @@
+<!--
+  Generated template for the BikeResultPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Bike Result</ion-title>
+  </ion-navbar>
+	<!-- <ion-toolbar *ngIf="showSearchbar">
+      <ion-searchbar  *ngIf="showSearchbar"
+    [showCancelButton]="true"
+    [(ngModel)]="myInput"
+    (input)="search($event)"
+    (ionCancel)="onCancel($event)">
+  </ion-searchbar> -->
+    <!-- </ion-toolbar> -->
+    
+    <!-- <ion-navbar *ngIf="!showSearchbar">
+    <ion-title style="text-align: center;">Bike search</ion-title>
+    <ion-buttons end >
+      <button  ion-button icon-only (click)="toggleSearchbar()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only><ion-icon name="cart"></ion-icon></button>
+      </ion-buttons>
+    </ion-navbar> -->
+    <ion-grid class="filter-bar p-0">
+      <ion-row>
+        <ion-col col-6 class="p-0"><button ion-button block color="light" (click)="filtr()"><img src="../../assets/imgs/icon-filter.png" alt=""> Filter</button></ion-col>
+        <ion-col col-6 class="p-0"><button ion-button block color="light" (click)="sort()"><img src="../../assets/imgs/icon-sort.png" alt=""> Sort By Price</button></ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-header>
+
+
+<ion-content class="flex-wrapper">
+   
+        <ion-card class="ml-0 mr-0 mt-0 w-100 product-holder" *ngFor="let item of resultArray" (click)="goToDetails(item.id)">
+            <ion-card-content>
+  <ion-slides pager >
+    <ion-slide  *ngFor="let image of item.productsimages"><img *ngIf="image.name.length != 0"  src="{{imageUrl + image.name}}" alt="">
+      <img *ngIf="image.name.length == 0" src="assets/imgs/camera.png" alt="">
+  </ion-slide></ion-slides>
+
+         
+           <h6>{{item.reg_number}}</h6>
+           <p class="price">$ {{item.price}}</p>
+        
+         
+             <p *ngIf="item.Bikemodels"><span>Model :</span> {{item.Bikemodels.model_name}}</p>
+               <p *ngIf="item.Makes"><span>Make :</span>{{item.Makes.make_name}}</p>
+         </ion-card-content>
+       </ion-card> 
+     
+      </ion-content>
+       
+

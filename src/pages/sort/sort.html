@@ -1,0 +1,49 @@
+<!--
+  Generated template for the SortPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sort</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-card class="m-0 w-100">
+		<ion-card-content class="options-wrap">
+			<p class="heading">Keyword or Ad Number</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-input type="text" value=""></ion-input>
+				</ion-item>
+			</ion-list>
+			<p class="heading">Sort By</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-label>Options</ion-label>
+					<ion-select  (ionChange)="sortbike($event)">
+						<ion-option value="d">Decreasing by price</ion-option>
+						<ion-option value="i">Increasing by price</ion-option>
+						<!-- <ion-option value="aa">By address (A-Z)</ion-option>
+						<ion-option value="zz">By address (Z-A)</ion-option> -->
+					</ion-select>
+				</ion-item>
+			</ion-list>
+		</ion-card-content>
+	</ion-card>
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<ion-grid class="p-0">
+			<ion-row>
+				<ion-col col-6 class="pt-0 pb-0"><button ion-button block color="danger">Cancel</button></ion-col>
+				<ion-col col-6 class="pt-0 pb-0"><button ion-button block>Apply</button></ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-toolbar>
+</ion-footer>

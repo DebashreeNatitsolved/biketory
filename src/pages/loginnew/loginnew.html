@@ -1,0 +1,55 @@
+<!-- <ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+		<ion-title>Login</ion-title>
+	</ion-navbar>
+</ion-header> -->
+
+<ion-content padding class="login-bg">
+	<div class="logo">
+		<img src="assets/imgs/after-splash-logo.png" alt="">
+	</div>
+	<h5 class="page-title">Sign In</h5>
+  
+  <form [formGroup]="form" (ngSubmit)="loginNow(form.value)" #loginForm="ngForm">
+		<ion-list>
+			<ion-item class="input-field">
+				<ion-label fixed><img src="assets/imgs/user-icon.png" alt=""></ion-label>
+				<ion-input type="text" value="" formControlName="email" (ngModelChange)="checkEmail($event)" placeholder="Email"></ion-input>
+			</ion-item>
+			<p *ngIf="!form.controls['email'].valid && form.controls['email'].touched" ion-text color="danger">Email is required </p>
+			
+			<p *ngIf="!isValidEmail" ion-text color="danger">Please enter valid email id. </p>
+			<ion-item class="input-field">
+				<ion-label fixed><img src="assets/imgs/icon-password.png" alt=""></ion-label>
+				<ion-input type="password" formControlName="password"  value="" placeholder="Password"></ion-input>
+			</ion-item>
+			<p *ngIf="!form.controls['password'].valid && form.controls['password'].touched" ion-text color="danger">Password is required </p>
+		</ion-list>
+		<ion-list no-lines>
+		  <ion-grid class="pl-0 pr-0">
+		    <ion-row>
+		      <ion-col col-6 class="pl-0">
+		        <ion-item class="remember">
+		        	<ion-label>Remember me</ion-label>
+					<ion-checkbox color="light" checked="true"></ion-checkbox>
+		        </ion-item>
+		      </ion-col>
+		      <ion-col col-6 class="pr-0">
+		        <ion-item>
+		        	<ion-label text-right (click)="forgetpass()" class="forgot mr-0">Forgot Password?</ion-label>
+		        </ion-item>
+		      </ion-col>
+		    </ion-row>
+		  </ion-grid>
+		 </ion-list>
+  
+			
+		<button ion-button round  block [disabled]="!form.valid || !isValidEmail">Sign In</button>
+		<h5 class="or text-center">OR</h5>
+		<button ion-button round outline (click)="onSignup()" block>Create an Account</button>
+		
+	</form>
+</ion-content>

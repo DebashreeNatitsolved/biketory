@@ -1,0 +1,34 @@
+page-ad-details {
+	.scroll-content{padding: 10px !important;}
+	.details-slider .swiper-slide{height:134px; width:100% !important; position:relative}
+	.details-slider .swiper-slide .tag{position:absolute; right:5px; top:5px; width:40px}
+	
+	.car-title{font-size:1.1rem; margin:10px 6px;}
+	
+	
+	.links{display:flex; justify-content:space-evenly; list-style-type:none; padding:0; position:relative; border-top:1px solid #e1e1e1; border-bottom:1px solid #e1e1e1; margin-bottom:10px;}
+	.links li{min-width:30%; border-right:1px solid #e1e1e1}
+	.links li:last-child{border-right:0}
+	.links li a{text-align:center; display:block; padding:5px 0; color:#3f5485; text-decoration:none; font-size:1.05rem;}
+	
+	.bredcumb{list-style-type:none; padding:0; text-align:center}
+	.bredcumb li{display:inline-block; font-size:1.1rem; position:relative; margin:0 5px; color:#3f5485;}
+	.bredcumb li:after{content:'>'; font-size:1rem; position:absolute; right:-10px;}
+	.bredcumb li:last-child:after{content:'';}
+	.location{font-size:1rem;}
+	
+	.prod-dtls{border-top:1px solid #e1e1e1; padding-top:5px;}
+	.prod-dtls p{font-size:1.2rem; font-weight:300; color:#777777}
+	.prod-dtls span{font-size:1.2rem; font-weight:300; color:#555555; display:block; text-align:right}
+	
+	.segment-md .segment-button, .segment-ios .segment-button{color:#606060; text-transform:none}
+	.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated{color:#0d3758}
+	.segment-ios .segment-button.segment-activated{background-color:#3f5485; color:#fff}
+	.segment-ios .segment-button{font-size:1.1rem; font-weight:300; border:0}
+	.card-content{padding:10px}
+	.card-content p{color:#777; font-weight:300; font-size:1.2rem; margin-top:10px}
+	.card-content b{color:#777; font-weight:400; font-size:1.2rem}
+	.card-content b span{color:#0d3758;}
+	
+	.report{color:#3f475f; border-top:1px solid #e1e1e1; padding-top:6px}
+}

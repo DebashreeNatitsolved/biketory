@@ -1,0 +1,168 @@
+<!--
+  Generated template for the SellbikeTwoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+      <ion-title>Sell Bike</ion-title>
+    </ion-navbar>
+    </ion-header>
+    
+    
+    <ion-content padding>
+      <h4 class="mb-0 text-center text-uppercase">SELL MOTORBIKE    </h4>
+      <p class="m-b-10 text-center mt-0">Create your classified ad in 4 easy steps</p>
+      <form [formGroup]="form" (ngSubmit)="Sellbikethree(form.value)">
+        <ion-card class="ml-0 mr-0 mt-0 w-100 step-card">
+          <ion-card-content class="pl-0 pr-0">
+            <ion-grid class="p-0">
+              <ion-row>
+                <ion-col col-12 class="pl-0 pr-0">
+                  <ul class="step-holder">
+                    <li>
+                      <div class="number">1</div>
+                      <p>Step 1</p>
+                    </li>
+                    <li class="active">
+                      <div class="number">2</div>
+                      <p>Step 2</p>
+                    </li>
+                    <li>
+                      <div class="number">3</div>
+                      <p>Step 3</p>
+                    </li>
+                    <li>
+                      <div class="number">4</div>
+                      <p>Step 4</p>
+                    </li>
+                  </ul>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+    
+            <ion-list class="post-fields">
+    
+                <div class="border-0 position-r">
+                  <!-- <span class="asterik">*</span> -->
+                    <ion-select okText="Okay" class="Select-new"  placeholder="Type" formControlName="type">
+                        <ion-option *ngFor="let item of type">{{item.name}}</ion-option>
+                   
+                    </ion-select>
+                    <!-- <p *ngIf="!form.controls['Type'].valid && form.controls['Type'].touched" ion-text color="danger">Type Is Required</p> -->
+                  </div>
+    
+               <div class="border-0 position-r">
+                  <!-- <span class="asterik">*</span> -->
+                  <ion-select okText="Okay" class="Select-new"  placeholder="Engine Size" formControlName="engine_size">
+                      <ion-option *ngFor="let item of engin">{{item.size}}</ion-option>
+                 
+                  </ion-select>
+
+                    <div class="right-cover">CC</div>
+                </div>
+    
+                <div class="border-0 position-r">
+                    <!-- <span class="asterik">*</span> -->
+                    <ion-select okText="Okay" class="Select-new"  placeholder="Year (YYYY)" formControlName="year">
+                        <ion-option *ngFor="let item of years">{{item}}</ion-option>
+                   
+                    </ion-select>
+                    
+                   
+                </div>
+    
+                <div class="border-0 position-r">
+                    <!-- <span class="asterik">*</span> -->
+                    
+                    <ion-select okText="Okay" class="Select-new"  placeholder="Mileage" formControlName="mileage" >
+                        <ion-option *ngFor="let item of mileage">{{item}}</ion-option>
+                      </ion-select>
+                   
+                </div>
+    
+                <div class="border-0 position-r">
+                    <!-- <span class="asterik">*</span> -->
+                    <ion-input type="tel" minlength="2" formControlName="price" placeholder="Price"> </ion-input>
+
+                   
+                    <!-- <div class="right-cover1">£</div> -->
+                   
+                </div>
+    
+                <div class="border-0 position-r">
+                    <!-- <span class="asterik">*</span> -->
+                    <ion-select okText="Okay" class="Select-new" placeholder="Colour" formControlName="color">
+                        <ion-option  *ngFor="let item of colour" value="{{item.id}}">{{item.name}}</ion-option>
+                       
+                    </ion-select> 
+                  </div>
+
+    
+                  <div class="border-0 position-r">
+                      <ion-textarea class="Select-new" formControlName="description" placeholder="Description"></ion-textarea>
+                  </div>
+    
+              
+         
+      
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+        <ion-grid >
+          <ion-row>
+              <ion-col  text-center>
+                  <button full ion-button class="text-uppercase gra" style="background-color: gray" (click)="Sellbikeone()">Back</button>
+                </ion-col>
+                <ion-col  text-center>
+                    <button full ion-button type="submit" class="text-uppercase" [disabled]="!form.valid">Next</button>
+                  </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- <button ion-button block class="text-uppercase" [disabled]="!form.valid">Continue</button> -->
+      </form>
+    </ion-content>
+    
+    
+    <ion-footer>
+      <ion-toolbar>
+        <div class="tabs-sell">
+          <ul>
+            <li>
+              <a href="">
+                <div class="icon">
+                  <img src="../../assets/imgs/tab-icon-sell/profile-h.png" alt="" />
+                </div>
+                Profile
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="icon">
+                  <img src="../../assets/imgs/tab-icon-sell/bike-h.png" alt="" />
+                </div>
+                Sell Bike
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="icon">
+                  <img src="../../assets/imgs/tab-icon-sell/gear-h.png" alt="" />
+                </div>
+                Sell Gear
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="icon">
+                  <img src="../../assets/imgs/tab-icon-sell/profile-h.png" alt="" />
+                </div>
+                Chats</a>
+            </li>
+          </ul>
+        </div>
+      </ion-toolbar>
+    </ion-footer>
+    
+    

@@ -1,0 +1,19 @@
+page-mygear {
+    .category-card ion-card-content{padding:0}
+	.fab-list ion-item.item{padding-left:0; border-bottom:1px solid #e1e1e1; margin-left:10px; margin-right:10px; width:auto}
+	.fab-list ion-item.item:last-child{border-bottom:0;}
+	 ion-thumbnail{border-radius:2px; height:80px; width:95px}
+	
+	.fab-list ion-thumbnail[item-start] {margin: 10px 10px 10px 0 !important;}
+	.fab-list ion-thumbnail img{border-radius:2px; height:80px; width:95px}
+	.fab-list ion-item h2{font-size:1.1rem; line-height:1.5;  white-space:no-wrap; margin-top:0; text-overflow: ellipsis; overflow: hidden; margin-bottom:0}
+	.fab-list ion-item b{font-size:1.2rem; color:#3f5485; display:block}
+	.fab-list ion-item p{font-weight:500; color:#555; font-size:1rem; margin-bottom:0}
+	.fab-list ion-item p span{font-weight:300}
+	.fab-list ion-item.item-block{align-items: flex-start;}
+	.scroll-content{padding: 10px !important;}
+	
+	.item-ios .item-button, .item-md .item-button{font-size:1rem; padding:0 0.9rem; font-weight:300; margin-left:0}
+	.item-ios.item-block .item-inner, .item-md.item-block .item-inner {padding-right: 0;}
+	ion-label.label{margin-right:0}
+}

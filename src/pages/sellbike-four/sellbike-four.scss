@@ -1,0 +1,56 @@
+page-sellbike-four {
+	.step-card{padding:0px; background: transparent; box-shadow: none}
+  
+	  .scroll-content{background: #fff}
+	  h6{font-weight:500 !important; color:#555}
+	  h4{font-family: 'calibribold'; margin-top: 20px!important}
+	  h2{font-family: 'calibribold'; font-size: 2rem; color: #565656; margin: 20px 0}
+	  
+	  .step-holder{display:flex; justify-content:space-around; list-style-type:none; padding:0; position:relative; margin-top:0; width:90%; margin: 0 auto 30px}
+	  .step-holder:before{position:absolute; width:100%; height:4px; background:#e8e8e8; content:''; top:14px; width:80%}
+	  .step-holder li{text-align:center; display:flex; justify-content: center; align-items: center; flex-wrap: wrap; flex-direction: column;}
+	  .step-holder li .number{width:28px; height:28px; border-radius:100%; background:#d1d1d1; text-align:center; line-height: 28px; color:#fff; position: relative ; z-index: 99}
+	  .step-holder li p{padding:0 8px; margin: 5px 0; font-size:1.1rem; line-height:1; color:#666}
+	  .step-holder li.active .number{background:#f56f30;}
+	  .step-holder li.active p{color:#000}
+	  
+		  
+	
+  
+	  .sell-bike-box{
+		  height: 150px;
+		  width: 100%;
+		  border: #000 1px solid;
+		  margin: 20px auto;
+		  float: left;
+		  border-style: dashed;
+	  }
+	  .euro-img{
+		  width: 80px;
+		  margin: 15px auto;
+	  }
+	  .euro-img img{
+		  max-width: 100%;
+	  }
+	  .oreng{
+		  color: #ed7d31;
+	  }
+	  .back-btn{
+	  background: #5b5b5b !important;
+	  }
+	  .top{
+		  margin: 15px 15px 0 0;
+		  top:15px;
+	  }
+	  .gra{
+		  background: #7f7f7f;
+	  }
+  /*+++++++++++++++++++++margin section bidhan+++++++++++++++++++++*/	
+  .margin-top5{margin-top: 5px;}.margin-top8{margin-top: 8px;}.margin-top10{margin-top: 10px;}
+  .margin-bottom5{margin-bottom: 5px;}.margin-bottom8{margin-bottom: 8px;}.margin-bottom10{margin-bottom: 10px;}
+  .margin-right5{margin-right: 5px;}.margin-right8{margin-right: 8px;}.margin-right10{margin-right: 10px;}
+  .margin-left5{margin-left: 5px;}.margin-left8{margin-left: 8px;}.margin-left10{margin-left: 10px;}
+  /*+++++++++++++++++++++end margin section bidhan+++++++++++++++++++++*/	
+  
+  }
+  

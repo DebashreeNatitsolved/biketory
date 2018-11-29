@@ -1,0 +1,8 @@
+page-after-splash {
+	.after-splash{background:url('../assets/imgs/splash-bg.jpg') no-repeat top center; background-size: cover;}
+	.logo{width:180px; margin: 100px auto 0px; display:block}
+	.logo-text{color:#fff; font-size:1.6rem; margin-top:5px}
+	.text-wrapper{background:url('../assets/imgs/text-bg.png') no-repeat top center; background-size: 100% 100%; position:relative; height:240px; width:240px; margin:45px auto}
+	.text-wrapper .text-area{width:73%; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); color:#fff; font-size:1.6rem; text-align:center}
+	.signup-btn{color:#f06421; font-family: 'calibribold' !important;}
+}

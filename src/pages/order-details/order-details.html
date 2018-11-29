@@ -1,0 +1,155 @@
+<!--
+  Generated template for the OrderDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>OrderDetails</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+    <ion-content>
+      <ion-grid  >
+          <ion-row class="box" *ngFor="let item of detailsArray">
+              
+              <ion-card class="gra-bg">
+
+               <span>Shipping Address: {{item.shipping_address}}</span>
+               <hr class="line3">
+                <span> Billing Address: {{item.billing_address}}</span>
+              
+            </ion-card>
+                
+      
+                <ion-card  *ngFor="let nextItem of item.order_details">
+                   <ion-row>
+                    <ion-col col-4 class="image-w">
+                      <img alt="" src="http://111.93.169.90/team6/bike/gear_img/5b14e753142c5.jpeg">
+                </ion-col>
+                <ion-col col-8>
+                  <h4 class="titel2">Order Date<span>{{(item.order_date)|date:'dd/MMM/yyyy'}}</span></h4>
+                  <h3 class="titel3">Product Name<span> {{nextItem.gear.product_name}}</span></h3>
+                  <!-- <h3 class="titel3">Payment Mode<span>   {{item.payment_mode}}</span></h3> -->
+                  <h3 class="titel3">Quantity:<span> {{nextItem.quantity}}</span></h3>
+                  <h3 class="titel3">price:<span class="price-text">${{nextItem.gear.price}}.00</span></h3>
+                  <!-- <h3 class="titel3">Seller Info:<span>{{nextItem.gear.user.email}}</span></h3> -->
+                </ion-col>
+                
+                </ion-row>
+                </ion-card>
+      
+           </ion-row>
+           <div class="margin-bottom-50"></div>
+
+        <!-- <ion-row class="box" *ngFor="let item of detailsArray">
+          <ion-col col-12 class="gra-bg">Buyer Info: <span>Spandan Sadhukan,123456</span></ion-col>
+          <ion-col col-12 class="gra-bg">Order Date: <span>{{(item.order_date)|date:'dd/MMM/yyyy, hh:mm a'}}</span></ion-col>
+            <ion-col col-4 class="image-w">
+                  <img alt="" src="http://111.93.169.90/team6/bike/gear_img/5b14e753142c5.jpeg">
+            </ion-col>
+
+            <ion-col col-8 *ngFor="let nexttItem of item.order_details">
+
+             <h4 class="titel2">Order Date <span> {{(item.order_date)|date:'dd/MMM/yyyy, hh:mm a'}}</span></h4>
+               <h3 class="titel3" >Product Name<span>{{nexttItem.gear.product_name}}</span></h3>
+              <h3 class="titel3">Payment Mode<span>  {{item.payment_mode}}</span></h3>
+              <h3 class="titel3">Quantity:<span>  1</span></h3>
+              <h3 class="titel3">price:<span class="price-text">$300</span></h3>
+
+            </ion-col>
+       </ion-row> 
+     -->
+
+     
+       
+    </ion-grid>
+    </ion-content>
+  
+
+  
+    
+    <!-- <ion-content>
+      <ion-grid class="padding-0" *ngFor="let item of detailsArray" >
+        <ion-row class="white-bg"  >
+           <ion-col col-4>
+           <img alt="" src="assets/imgs/bike.png">
+           </ion-col>
+            <ion-col col-8>
+              <h4 class="titel">Total</h4>
+              <span>Rs:{{item.total_price}}</span>
+           </ion-col>
+        </ion-row>
+      </ion-grid>
+    
+      <ion-grid class="padding-0"  *ngFor="let item of detailsArray">
+        <ion-row class="white-bg padding-10">
+    
+           <ion-col col-6>
+            <h6 class="order-id">Order-Id:</h6>
+           </ion-col>
+          <ion-col col-6>
+           <ion-icon class="same" name="reorder">{{item.id}}</ion-icon> 
+           </ion-col>
+    
+           <div class="hr"></div>
+    
+          <ion-col col-6>
+            <h6 class="order-id">Order Date:</h6>
+           </ion-col>
+          <ion-col col-6>
+           <ion-icon class="same" name="calendar"></ion-icon> {{(item.order_date)|date:'dd/MMM/yyyy, hh:mm a'}}
+           </ion-col>
+    
+           <div class="hr"></div>
+    
+          <ion-col col-6>
+            <h6 class="order-id">Shipping address:</h6>
+          </ion-col>
+    
+          <ion-col col-6>
+             <ion-icon class="same" name="navigate"></ion-icon> {{item.shipping_address}}
+          </ion-col>
+
+          <div class="hr"></div>
+    
+          <ion-col col-6>
+            <h6 class="order-id">Billing address:</h6>
+          </ion-col>
+    
+          <ion-col col-6>
+             <ion-icon class="same" name="navigate"></ion-icon> {{item.billing_address}}
+          </ion-col>
+
+    
+           <div class="hr"></div>
+    
+          <ion-col col-6>
+            <h6 class="order-id">Order Status</h6>
+          </ion-col>
+    
+          <ion-col col-6>
+          <ion-icon class="same" name="time"></ion-icon> {{item.order_status}}
+          </ion-col>
+    
+          <div class="hr"></div>
+    
+          <ion-col col-6>
+            <h6 class="order-id">Payment Mode</h6>
+          </ion-col>
+    
+          <ion-col col-6>
+           <ion-icon class="same" name="card"></ion-icon> {{item.payment_mode}}
+          </ion-col>
+    
+
+
+    
+         </ion-row>
+       </ion-grid>
+    
+     </ion-content> -->

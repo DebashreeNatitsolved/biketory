@@ -1,0 +1,194 @@
+<!--
+  Generated template for the DetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+	<ion-navbar>
+		<ion-buttons start>
+			<!-- <button ion-button icon-only>
+				<ion-icon name="arrow-back"></ion-icon>
+			</button> -->
+		</ion-buttons>
+		<ion-title>Details</ion-title>
+		<ion-buttons end *ngIf="user_exists==1">
+			<button ion-button icon-only *ngIf="!wish" (click)="send_wishelist()">
+				<ion-icon name="heart" *ngIf="!wish"  ></ion-icon>
+				
+			</button>
+			<button ion-button icon-only *ngIf="wish">
+				
+				<ion-icon name="heart" isActive="true" style="color: red;" *ngIf="wish"></ion-icon>
+				
+			</button>
+			<button ion-button icon-only  (click)="shareInfo()">
+				
+				
+				<ion-icon name="share" ></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+		<ion-content>
+				<ion-slides pager *ngIf="bikeimages">
+				
+					<ion-slide *ngFor="let item of bikeimages">
+						<div class="big-banner">
+							
+							<img src="{{item.link}}" alt="" />
+						</div>
+						
+					</ion-slide>
+				</ion-slides>
+			
+				<ion-slides pager *ngIf="!bikeimages">
+						<ion-slide>
+							<div class="big-banner">					
+								<img src="assets/imgs/camera.png" alt=""/>
+							</div>				
+						</ion-slide>
+			</ion-slides>
+	
+	<div class="detail-box">
+		<div class="user">
+			<div class="pro-area">
+				<div class="avatar">
+					<img *ngIf="details.user_iamge" src="{{details.user_iamge}}">
+                <img *ngIf="!details.user_iamge" src="assets/imgs/avtar.png">
+				</div>
+				<div class="name">
+					<h2 *ngIf="details.reg_number">{{details.reg_number}}</h2>
+					<p> </p>
+				</div>
+			</div>
+			<ion-grid>
+
+
+					<ion-row>
+							<ion-col col-6>
+								<button ion-button round block  *ngIf="user_exists==0" (click)="loginAlert()">Request</button>
+							</ion-col>
+							<ion-col col-6>
+								<button ion-button outline round block *ngIf="user_exists==0" (click)="reviewAlert()"> Message To Owner</button>
+							</ion-col>
+						</ion-row>
+
+
+				<ion-row>
+					<ion-col col-6>
+						<button ion-button round block *ngIf="user_exists==1" (click)="send_request()">Request</button>
+					</ion-col>
+					<ion-col col-6>
+						<button ion-button outline round block *ngIf="user_exists==1" (click)="presentProfileModal()"> Message To Owner</button>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</div>
+		
+		
+		
+		<div class="desc">
+			<div class="price">
+				<h2>$ {{details.price}}</h2>
+				<p>{{details.year}} - {{details.make}} , {{details.model}}</p>
+			</div>
+			<div class="price new-price pl-0 pr-0">
+				<ul>
+					<li>
+						<div class="icon"><img src="../../assets/imgs/icon-make.png" alt="" /></div>
+						<div class="txt">
+							<p>Make
+							<span>{{details.make}}</span>
+							</p>
+						</div>
+					</li>
+					<li>
+						<div class="icon"><img src="../../assets/imgs/icon-model.png" alt="" /></div>
+						<div class="txt">
+							<p>Model
+							<span>{{details.model}}</span>
+							</p>
+						</div>
+					</li>
+					<li>
+						<div class="icon"><img src="../../assets/imgs/icon-cal.png" alt="" /></div>
+						<div class="txt">
+							<p>Year
+							<span>{{details.year}}</span>
+							</p>
+						</div>
+					</li>
+					<li>
+						<div class="icon"><img src="../../assets/imgs/icon-km.png" alt="" /></div>
+						<div class="txt">
+							<p>Mileage
+							<span>{{details.mileage}}</span>
+							</p>
+						</div>
+					</li>
+					<li>
+						<div class="icon">
+							<img src="../../assets/imgs/iocn-4.png" alt="" />
+						</div>
+						<div class="txt">
+							<p>Category:</p>
+							<span>{{details.mileage}}</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="price">
+				<h5> <b>Details</b> </h5>
+				<ion-item class="pl-0">
+					 Reg Number:
+					<div class="m-0" item-end>{{details.reg_number}}</div>
+				</ion-item>
+				<ion-item class="pl-0">
+					 CC:
+					<div class="m-0" item-end>{{details.cc}}</div>
+				</ion-item>
+				<ion-item class="pl-0">
+					 Fuel Type:
+					<div class="m-0" item-end>{{details.fuel_type}}</div>
+				</ion-item>
+				<ion-item class="pl-0">
+					 No Of Owner:
+					<div class="m-0" item-end>{{details.no_of_owner}}</div>
+				</ion-item>
+				<ion-item class="pl-0">
+					<p>{{details.description}}</p>
+			   </ion-item>
+
+			</div>
+			<div class="price">
+					<div  #map id="map" style="height:200px;"></div> 
+
+		<!-- <button ion-button (click)="addMarker()"><ion-icon name="add"></ion-icon>Add Marker</button> -->
+			<!-- <div class="map"><img src="../../assets/imgs/map.jpg" alt="" /></div> -->
+			<h3>4 Km Away</h3>
+			<p>Citycenter, Salt lake City, California,</p>
+			</div>
+			<div style="height: 60px;">
+
+			</div>
+		</div>
+		
+	</div>
+
+	<!-- <div class="bottom-part">
+		<ul>
+			<li><ion-icon name="call"></ion-icon><a href=""> Call Owner</a></li>
+			<li><ion-icon name="mail"></ion-icon><a href=""> Message Owner</a></li>
+		</ul>
+	</div> -->
+	
+</ion-content>
+<!-- <ion-footer>
+	<ion-toolbar>
+	  <ion-title>Footer</ion-title>
+	</ion-toolbar>
+  </ion-footer> -->

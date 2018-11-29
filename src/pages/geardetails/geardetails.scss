@@ -1,0 +1,241 @@
+page-geardetails {
+    .big-banner{
+        width:100%;
+        height: auto;
+        position: relative;
+     }
+     .big-banner .top{
+        position: absolute;
+        top: 15px;
+        left: 0;
+        height: auto;
+        width:100%;
+        z-index:100;
+        padding: 0;
+    }
+    .arrow-back{
+        width:32px;
+        height: auto;
+        color: #fff;
+    }
+    .arrow-back ion-icon{
+        color:#fff;
+        font-size:40px;
+    }
+    .fav, .share{
+        width:20px;
+        height:20px;
+        float:left;
+        color:#fff;
+        font-size:20px;
+        padding: 5px 0;
+    }
+    .share{
+        float:right;
+    }
+    .fav{
+    margin-left:0;
+    }
+    .detail-box{	
+        height: auto;
+        position: absolute;
+        z-index: 1000;
+        top: 35%;
+        left:0;
+        right:0;
+        margin:0 12px;
+        background:#fff;
+        border-radius: 3px;
+    }
+    .detail-box .user{
+        position: relative;
+        border-bottom:1px solid #e3e3e3;
+        
+    }
+    .detail-box .user .avatar{
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        top: -40px;
+        z-index: 1001;
+        left: 15px;
+        background:#fff;
+        border-radius: 100%;
+    }
+    .detail-box .user .avatar img{
+        width: 70px;
+        height: 70px;
+        border: solid 3px #ececec;
+        border-radius: 100%;
+        
+    }
+    .detail-box .user .name{
+        margin-left:92px;
+        width:calc(98% - 100px);
+        margin-right:15px;
+    }
+    .detail-box .user .name h2{
+        font-size:20px;
+        color:#202020;
+        margin-bottom:0;
+        font-weight: 600;
+        margin-top:10px;
+    }
+    .detail-box .user .name p{
+        margin-top:0;
+        font-size:14px;
+        color:#606060;
+    }
+    .detail-box .user .name p span{
+        float:right;
+    }
+    .detail-box .user .name p span button{
+        padding: 5px 15px !important; font-size:13px;
+    }
+    button{
+        padding: 5px 20px !important;
+        height: 30px  !important;
+        top:0;
+    }
+    .grey-bg{
+        background: #eeeeee;
+        overflow: hidden;
+    }
+    .detail-box .desc{
+        padding:15px;
+    }
+    .detail-box .desc .price{
+        padding:0 5px 20px;
+        border-bottom:1px solid #e3e3e3;
+        overflow:hidden;
+    }
+    .detail-box .desc .price h2{
+        font-size:26px;
+        color:#f56f30;
+        font-weight:600;
+        padding:0;
+        margin:0 0 3px;
+    }
+    .detail-box .desc .price p{
+        margin:0;
+        font-size:16px;
+        color:#606060;
+        font-weight:300;
+    }
+    .detail-box .desc .price ul{
+        padding:25px 0 0 0;
+        margin:0;
+    }
+    .detail-box .desc .price ul li{
+        padding: 1px;
+        width: 50%;
+        float: left;
+        list-style-type: none;
+        margin-bottom: 10px;
+    }
+    .detail-box .desc .price ul li .icon{
+        float:left;
+        width:22px;
+        height:22px;
+        margin-right:10px;	
+    }
+    .detail-box .desc .price ul li .icon img{
+        width:auto;
+        height: auto;
+    }
+    .detail-box .desc .price ul li .txt{
+        float: left;
+        width: calc(100% - 50px;)
+    }
+    .detail-box .desc .price ul li .txt p{
+        font-size:13px;
+        color:#5a5a5a;
+    }
+    .detail-box .desc .price ul li .txt p span{
+        font-size:14px;
+        color:#0d0d0d;
+        font-weight:500;
+        display: block;
+    }
+    .map{
+        width:100%;
+        margin: 20px 0 10px;
+    }
+    .detail-box .desc .price:last-child{
+        border-bottom:0;
+    }
+    .detail-box .desc .price h3{
+        font-size:14px;
+        color:#9a9a9a;
+        padding:0;
+        margin:0 0 5px;
+    }
+    .bottom-part{
+        position:fixed;
+        height:50px;
+        background:#f56f30;
+        bottom:0;
+        z-index:1100;
+        width:100%;
+    }
+    .bottom-part ul{
+        padding:0;
+        margin:0;
+        height:50px;
+    }
+    .bottom-part ul li{
+        padding:0 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        float: left;
+        list-style-type: none;
+        border-right: solid 1px #fff;
+        color:#fff;
+        height:50px;
+        
+    }
+    .bottom-part ul li:last-child{
+        border-right: 0;
+    }
+    .bottom-part ul li a{
+        color: #fff;
+        font-size: 18px;
+        text-transform: uppercase;
+        text-decoration: none;
+        line-height:16px;
+    }
+    .bottom-part ul li ion-icon{
+        font-size:20px;
+        margin-right: 10px;
+    }
+    
+    .new-price{display: flex; flex-wrap: wrap}
+    .new-price ul{display: flex; flex-wrap: wrap}
+    
+    .pro-area{ width: auto;}
+    
+    ion-slides{height: 211px;}
+    .swiper-slide img{ width: 100%;}
+    .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet{ display: none;}
+    
+    .item.item-block .item-inner{ border-bottom: 0; padding-right: 0;}
+    .item.item-block{min-height: 3rem;}
+    ion-item .item-inner .input-wrapper .label{margin-bottom: 0; margin-top: 0; color: #5a5a5a; font-size: 14px;}
+    .item.item-block .item-inner .item [item-end]{ color: #5a5a5a; font-size: 14px;}
+    // ion-header .toolbar-background{}//
+    ul {
+        padding: 0px;
+      
+        &.rating li {
+          padding: 5px 10px !important;
+          background: none;
+          color: #ffb400;
+      
+          ion-icon {
+            font-size: 30px;
+          }
+        }
+      }
+}

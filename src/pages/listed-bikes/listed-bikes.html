@@ -1,0 +1,103 @@
+<!--
+  Generated template for the ListedBikesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>My Listed Bikes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="bikelists">
+    <div class="total" *ngFor="let bike of bikelists,index as i">
+        <ion-item class="bike-listing" >       
+         <h2 class="title list-titel">Title: {{bike.reg_number}}</h2>
+         <h2 class="title list-titel" *ngIf="bike.Makes">Make: {{bike.Makes.make_name}}</h2>
+         <h2 class="title list-titel" *ngIf="bike.Bikemodels">Model: {{bike.Bikemodels.model_name}}</h2>
+         
+         <p class="list-para"><strong>Price:</strong> <span class="bold">${{bike.price}}.00</span></p>
+         <p class="list-para" [innerHTML]="bike.description"></p>
+          <div class="button-area">
+            <button ion-button color="text-uppercase" (click)="editBike(bike.id,i)"><ion-icon name="create"></ion-icon></button> <button ion-button color="dark" (click)="deletelist(bike.id)"><ion-icon name="trash"></ion-icon></button>
+            <button ion-button color="text-uppercase" (click)="disablelist(bike.id,i)" *ngIf="bike.is_active=='Y'">Activated</button>
+            <button ion-button color="text-uppercase" (click)="disablelist(bike.id,i)" *ngIf="bike.is_active=='N'">Deactivated</button>
+          </div>
+        </ion-item>
+        <div class="bike-list-image"  *ngIf="bike.productsimages.length ==0">
+          <img src="assets/imgs/big-banner.png" alt="" />
+        </div>
+        <div class="bike-list-image" *ngIf="bike.productsimages.length>0">
+            <img src="{{imagepath+bike.productsimages[0].name}}" alt="" />
+          </div>
+        
+</div>
+      </div>
+      <div *ngIf="bikelists==''">
+        <p>No Result Found</p>
+        </div>
+      
+      
+      <!-- <div class="total">
+        <ion-item class="bike-listing">
+         <h2 class="title list-titel">Carpets & Rugs</h2>
+         <p class="list-para"><strong>Price:</strong> <span class="bold">$0</span></p>
+         <p class="list-para">Donec feugiat justo sapien. Etiam tempus lacus ut sem laoreet venenatis.</p>
+          <div class="button-area">
+            <button ion-button color="text-uppercase"><ion-icon name="create"></ion-icon></button> <button ion-button color="dark"><ion-icon name="trash"></ion-icon></button>
+          </div>
+        </ion-item>
+        <div class="bike-list-image">
+          <img src="assets/imgs/big-banner.png" alt="" />
+        </div>
+      </div>
+      
+      
+      <div class="total">
+        <ion-item class="bike-listing">
+         <h2 class="title list-titel">Carpets & Rugs</h2>
+         <p class="list-para"><strong>Price:</strong> <span class="bold">$0</span></p>
+         <p class="list-para">Donec feugiat justo sapien. Etiam tempus lacus ut sem laoreet venenatis.</p>
+          <div class="button-area">
+            <button ion-button color="text-uppercase"><ion-icon name="create"></ion-icon></button> <button ion-button color="dark"><ion-icon name="trash"></ion-icon></button>
+          </div>
+        </ion-item>
+        <div class="bike-list-image">
+          <img src="assets/imgs/big-banner.png" alt="" />
+        </div>
+      </div>
+      
+      <div class="total">
+        <ion-item class="bike-listing">
+         <h2 class="title list-titel">Carpets & Rugs</h2>
+         <p class="list-para"><strong>Price:</strong> <span class="bold">$0</span></p>
+         <p class="list-para">Donec feugiat justo sapien. Etiam tempus lacus ut sem laoreet venenatis.</p>
+          <div class="button-area">
+            <button ion-button color="text-uppercase"><ion-icon name="create"></ion-icon></button> <button ion-button color="dark"><ion-icon name="trash"></ion-icon></button>
+          </div>
+        </ion-item>
+        <div class="bike-list-image">
+          <img src="assets/imgs/big-banner.png" alt="" />
+        </div>
+      </div>
+      
+      <div class="total">
+        <ion-item class="bike-listing">
+         <h2 class="title list-titel">Carpets & Rugs</h2>
+         <p class="list-para"><strong>Price:</strong> <span class="bold">$0</span></p>
+         <p class="list-para">Donec feugiat justo sapien. Etiam tempus lacus ut sem laoreet venenatis.</p>
+          <div class="button-area">
+            <button ion-button color="text-uppercase"><ion-icon name="create"></ion-icon></button> <button ion-button color="dark"><ion-icon name="trash"></ion-icon></button>
+          </div>
+        </ion-item>
+        <div class="bike-list-image">
+          <img src="assets/imgs/big-banner.png" alt="" />
+        </div>
+      </div> -->
+      
+</ion-content>

@@ -1,14 +1,296 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+	<ion-toolbar>
+
+		<ion-grid class="p-0">
+			<ion-row>
+				<ion-col col-4>
+					<button ion-button menuToggle>
+						<ion-icon name="menu"></ion-icon>
+					</button>
+				</ion-col>
+
+				<ion-col col-4>
+					<img src="assets/imgs/after-splash-logo.png" alt="" class="logo">
+				</ion-col>
+				<ion-col col-4>
+				<ion-buttons end>
+					<button ion-button icon-only (click)="goToCartPage()"><ion-icon name="cart"></ion-icon></button>
+				</ion-buttons>
+			</ion-col>
+
+				
+
+
+
+
+				<!-- 			<ion-toolbar *ngIf="showSearchbar">
+						<ion-searchbar *ngIf="showSearchbar" 
+						[showCancelButton]="true" 
+						[(ngModel)]="myInput" 
+						(search)="search($event)" 
+						(ionCancel)="onCancel($event)">
+						</ion-searchbar>
+					</ion-toolbar>
+	
+					<ion-toolbar *ngIf="!showSearchbar">
+							
+									
+								
+							
+									<p class="mb-0 text-center m-t-5 title">Home</p>
+								
+							<ion-buttons end class="cart-g">
+								<button  ion-button icon-only (click)="toggleSearchbar()">
+								  <ion-icon name="search"></ion-icon>
+								</button>
+								<button  ion-button icon-only (click)="goToCartPage()"><ion-icon name="cart"></ion-icon></button>
+								<div class="count-0">2</div>
+							</ion-buttons>
+						  </ion-toolbar> -->
+
+
+
+
+			</ion-row>
+		</ion-grid>
+	</ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+	<!-- <ion-slides pager class="home-slider"> -->
+	<!-- <ion-slide style="background-image:url('assets/imgs/home-slide-1.jpg'); background-size: cover; background-repeat: no-repeat; background-position: top center">
+				<div class="text-area">
+					<img src="assets/imgs/ad-logo.png" alt="" class="ad-logo">
+					<h5>BODY CLOTHING</h5>
+					<p>Cross of christ sports motocross motobike</p>
+					<button ion-button color="light">Buy Now</button>
+				</div>
+			</ion-slide> -->
+	<!-- <ion-slide style="background-image:url('assets/imgs/home-slide-1.jpg'); background-size: cover; background-repeat: no-repeat; background-position: top center">
+				<div class="text-area">
+					<img src="assets/imgs/ad-logo.png" alt="" class="ad-logo">
+					<h5>BODY CLOTHING</h5>
+					<p>Cross of christ sports motocross motobike</p>
+					<button ion-button color="light">Buy Now</button>
+				</div>
+			</ion-slide>
+		</ion-slides> -->
+
+	<ion-card class="m-0 w-100 search-bike">
+		<ion-card-content>
+			<h2>SEARCH MOTORBIKE</h2>
+			<ion-grid class="p-0">
+				<ion-row>
+					<ion-col col-12 class="pl-0 pr-0">
+						<form [formGroup]="form" (ngSubmit)="bikesearch(form.value)" #BkForm="ngForm">
+							<ion-list class="search-wrapper m-b-20">
+								<ion-item class="input-field" class="border">
+									<ion-label fixed class="mr-0">
+										<ion-icon name="search"></ion-icon>
+									</ion-label>
+									<ion-input type="text" value="" formControlName="ser_val" placeholder="Search"></ion-input>
+								</ion-item>
+
+								<ion-label>OR</ion-label>
+
+								<ion-item class="menuItem">
+									<ion-label>Postcode</ion-label>
+									<ion-input type="text" formControlName="postal_code" (keyup)=checkPostalCode(form.value.postal_code)></ion-input>
+								</ion-item>
+								<p *ngIf="postcode==0" style="color:red;padding-left: 16px;">
+									Enter a valid postcode of UK									  </p>
+								<ion-item class="menuItem">
+									<ion-label>Nationwide</ion-label>
+									<ion-select  formControlName="distance">
+										<ion-option *ngFor="let item of distance">{{item}}</ion-option>
+									</ion-select>
+								</ion-item>
+								
+								<ion-item class="input-field" class="border">
+									<ion-label>Make</ion-label>
+									<ion-select formControlName="make_id">
+										<ion-option *ngFor="let item of make" value="{{item.id}}">{{item.make_name}}</ion-option>
+									</ion-select>
+								</ion-item>
+
+								<ion-item class="input-field" class="border">
+									<ion-label>Model</ion-label>
+									<ion-select formControlName="model_id">
+										<ion-option *ngFor="let item of model" value="{{item.id}}">{{item.model_name}}</ion-option>
+									</ion-select>
+								</ion-item>
+
+							</ion-list>
+
+							<p *ngIf="!showMenu">
+									<button ion-button round block type="submit" style="padding-top: 3px">SEARCH</button>
+								</p>
+
+
+
+
+							<a>
+								<ion-icon class="show-plus" *ngIf="!showMenu" (click)="clickme()">
+									<ion-icon class="round2" name="add"></ion-icon> More Options
+
+								</ion-icon>
+
+								<ion-icon *ngIf="showMenu">
+
+
+
+									
+									<ion-item class="menuItem">
+										<ion-label>Type </ion-label>
+										<ion-select formControlName="type">
+											<ion-option *ngFor="let item of type">{{item.name}}</ion-option>
+										</ion-select>
+									</ion-item>
+									<ion-item class="menuItem">
+										<ion-label>Min Price</ion-label>
+										<ion-select formControlName="min_price" >
+												<ion-option *ngFor="let item of minPrice">£{{item}} </ion-option>
+											</ion-select>
+									</ion-item>
+									<ion-item class="menuItem">
+										<ion-label>Max Price</ion-label>
+										<ion-select formControlName="max_price" >
+												<ion-option *ngFor="let item of maxPrice"> £{{item}} </ion-option>
+											</ion-select>
+									</ion-item>
+									<ion-item class="menuItem">
+										<ion-label>Min CC</ion-label>
+										<ion-select formControlName="min_cc"><ion-option *ngFor="let item of minCC"> {{item}} cc </ion-option></ion-select>
+										
+									</ion-item>
+									<ion-item class="menuItem">
+										<ion-label>Max CC</ion-label>
+										<ion-select formControlName="max_cc"><ion-option *ngFor="let item of maxCC"> {{item}} cc </ion-option></ion-select>
+									</ion-item>
+									<ion-item class="menuItem">
+										<ion-label>Year From </ion-label>
+										<ion-select formControlName="min_year">
+											<ion-option *ngFor="let item of years">{{item}}</ion-option>
+										</ion-select>
+									</ion-item>
+									<ion-item class="menuItem">
+										<ion-label>Year To</ion-label>
+										<ion-select formControlName="min_year">
+											<ion-option *ngFor="let item of years">{{item}}</ion-option>
+										</ion-select>
+									</ion-item>
+									<ion-item class="menuItem">
+										<ion-label>Mileage From </ion-label>
+										<ion-select formControlName="min_milage">
+											<ion-option *ngFor="let item of mileageFrom" >{{item}}</ion-option>
+										</ion-select>
+									</ion-item>
+									<ion-item class="menuItem">
+										<ion-label>Mileage To</ion-label>
+										<ion-select formControlName="max_milage">
+											<ion-option *ngFor="let item of mileageTo" >{{item}}</ion-option>
+										</ion-select>
+									</ion-item>
+									<ion-item class="menuItem">
+										<ion-label>Colour</ion-label>
+										<ion-select formControlName="color">
+											<ion-option *ngFor="let item of colour" value="{{item.id}}">{{item.name}}</ion-option>
+										</ion-select>
+									</ion-item>
+									<!-- </form> -->
+								</ion-icon>
+								<!-- <ion-icon class="padding8" *ngIf="!showMenu" (click)="clickme()">
+									<ion-icon class="round2" name="remove"></ion-icon> Less Options
+								</ion-icon> -->
+
+							
+
+							<p *ngIf="showMenu">
+									<button ion-button round block type="submit">SEARCH</button>
+								</p>
+								<ion-icon class="padding8" *ngIf="showMenu" (click)="clickme()">
+										<ion-icon class="round2" name="remove"></ion-icon> Less Options
+									</ion-icon>
+								</a>
+						</form>
+						
+
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
+
+
+
+	<ion-card class="m-0 w-100 shop-gear">
+		<ion-card-content>
+			<h2>SEARCH GEAR</h2>
+			<ion-grid class="p-0">
+				<ion-row>
+					<ion-col col-12 class="pl-0 pr-0">
+						<form [formGroup]="gearForm" (ngSubmit)="gearsearch(gearForm.value,'')" #GRForm="ngForm">
+							<ion-list class="search-wrapper m-b-10">
+								<ion-item class="input-field">
+									<ion-label fixed class="mr-0">
+										<ion-icon name="search"></ion-icon>
+									</ion-label>
+									<ion-input type="text" value="" formControlName="ser_val" placeholder="Shop for yourself or Motorbike"></ion-input>
+								</ion-item>
+							</ion-list>
+							<p>
+								<button ion-button round full class="btnSearch" >SEARCH</button>
+							</p>
+						</form>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+			<ion-grid class="p-0 margin-bottom-100">
+				<ion-row>
+					<ion-col col-12 class="pl-0 pr-0">
+						<ul class="options-wrap">
+							<li *ngFor="let item of category">
+								<a href="javascript:void(0)" (click)="gearsearch('',item.id)">
+									<div class="round-image">
+										<img src="{{category_link + item.path}}" alt="">
+									</div>
+									<p>{{item.name}}</p>
+								</a>
+							</li>
+							<!-- <li>
+									<a href="">
+										<div class="round-image"><img src="assets/imgs/icon-helmet.png" alt=""></div>
+										<p>Healmet</p>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div class="round-image"><img src="assets/imgs/icon-oil.png" alt=""></div>
+										<p>Oil & Lubrications</p>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div class="round-image"><img src="assets/imgs/icon-luggage.png" alt=""></div>
+										<p>Luggage</p>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div class="round-image"><img src="assets/imgs/icon-maintainance.png" alt=""></div>
+										<p>Maintenance</p>
+									</a>
+								</li> -->
+						</ul>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
 </ion-content>

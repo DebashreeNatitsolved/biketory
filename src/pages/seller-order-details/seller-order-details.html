@@ -1,0 +1,101 @@
+<!--
+  Generated template for the SellerOrderDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>SellerOrderDetails</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+
+<!-- <ion-content padding>
+  <ion-card class="ml-0 mr-0 mt-0 w-100 category-card">
+      <ion-card-content>
+        	<ion-list class="fab-list">
+      <ion-item *ngFor="let item of detailsArray">
+          <p>Product Name: {{item.gear.product_name}}</p>
+          <p><span>Product Id: </span>{{item.product_id}}</p>
+          <p><span>Shipping Address: </span>{{item.order.shipping_address}}</p>
+					<p><span>Billing Address: </span>{{item.order.billing_address}} </p>				
+				</ion-item>
+      </ion-list>
+      </ion-card-content>
+     </ion-card>
+</ion-content> -->
+
+
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>SellerOrderDetails</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+    <ion-content>
+      <ion-grid class="margin-bottom-100">
+  
+        <ion-row class="box" *ngFor="let item of detailsArray">
+
+          <ion-col col-12 class="gra-bg"><span class="span1">Buyer Info:</span> <span class="span2" >{{item.order.user.first_name}} {{item.order.user.last_name}}</span></ion-col>
+          <ion-col col-12 class="gra-bg">
+
+              <span>Shipping Address: {{item.order.shipping_address}}</span>
+              <hr class="line3">
+               <span> Billing Address: {{item.order.billing_address}}</span>
+             
+              </ion-col>
+            <ion-col col-4 class="image-w">
+                  <img *ngIf="item.gear.upload" alt="" src="{{productImagePath+item.gear.upload}}">
+            </ion-col>
+
+            <ion-col col-8>
+              <!-- <h4 class="titel2">Order Date <span> {{(item.order_date)|date:'dd/MMM/yyyy, hh:mm a'}}</span></h4> -->
+              <h3 class="titel3" >Product Name<span>{{item.gear.product_name}}</span></h3>
+              <h3 class="titel3">Payment Mode<span>{{item.order.payment_mode}}</span></h3>
+              <h3 class="titel3">Quantity:<span>{{item.quantity}}</span></h3>
+              <h3 class="titel3">price:<span class="price-text">${{item.price}}.00</span></h3>
+            </ion-col>
+          </ion-row>
+          <h3 class="pricetitle">Total Price:<span class="price-text">${{totalPrice}}.00</span></h3>
+          
+     </ion-grid>
+    </ion-content>
+  
+  <!-- <ion-content>
+ <ion-grid class="padding-0"  *ngFor="let item of detailsArray">
+      <ion-row class="white-bg padding-10">
+         <ion-col col-6>
+          <h6 class="order-id">Product-Id:</h6>
+         </ion-col>
+        <ion-col col-6>
+         <ion-icon class="same" name="reorder">{{item.product_id}}</ion-icon> 
+         </ion-col>
+  
+         <div class="hr"></div>
+  
+         <ion-col col-6>
+           <h6 class="order-id"> Product Name:</h6>
+          </ion-col>
+         <ion-col col-6>
+          <ion-icon class="same" name="calendar"></ion-icon>{{item.gear.product_name}}
+          </ion-col>      
+         <div class="hr"></div>
+          <ion-col col-6>
+          <h6 class="order-id">Shipping address:</h6>
+        </ion-col>
+          <ion-col col-6>
+           <ion-icon class="same" name="navigate"></ion-icon>{{item.order.shipping_address}}
+        </ion-col>
+        <div class="hr"></div>
+          <ion-col col-6>
+          <h6 class="order-id">Billing address:</h6>
+        </ion-col>
+          <ion-col col-6>
+           <ion-icon class="same" name="navigate"></ion-icon>{{item.order.billing_address}}
+        </ion-col>
+       </ion-row>
+     </ion-grid>
+     </ion-content> -->

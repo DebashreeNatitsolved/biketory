@@ -1,0 +1,83 @@
+<!--
+  Generated template for the SearchGearPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+	
+	<ion-toolbar *ngIf="showSearchbar">
+			<ion-searchbar  *ngIf="showSearchbar"
+		[showCancelButton]="true"
+	  [(ngModel)]="myInput"
+	  (input)="search($event)"
+	  (ionCancel)="onCancel($event)">
+	</ion-searchbar>
+		</ion-toolbar>
+		
+		<ion-navbar *ngIf="!showSearchbar">
+		<ion-title style="text-align: center;">Gear search</ion-title>
+		<ion-buttons end >
+			<button  ion-button icon-only (click)="toggleSearchbar()">
+			  <ion-icon name="search"></ion-icon>
+			</button>
+			<button ion-button icon-only  (click)="goToCartPage()"><ion-icon name="cart"></ion-icon></button>
+		  </ion-buttons>
+	  </ion-navbar>
+		<ion-grid class="filter-bar p-0">
+			<ion-row>
+				<!-- <ion-col col-6 class="p-0"><button ion-button block color="light" (click)="filtr()"><img src="../../assets/imgs/icon-filter.png" alt=""> Filter</button></ion-col> -->		
+
+				<ion-col col-6 class="p-0" class="unknown">
+						<ion-item>
+								<ion-label>Category</ion-label>
+								<ion-select block color="light">
+								  <ion-option *ngFor="let item of subCategoryArray" value="{{item.id}}" (ionSelect)="clickOption(item.id)">{{item.name}}</ion-option>
+					
+								</ion-select>
+						</ion-item>		
+				</ion-col>
+
+				<ion-col col-6 ><button style="height:3em !important;" ion-button block color="light" (click)="sort()"><img src="../../assets/imgs/icon-sort.png" alt=""> Sort By Price</button></ion-col>		
+
+			</ion-row>
+		</ion-grid>
+</ion-header>
+
+
+<ion-content  class="flex-wrapper">
+		<ion-list *ngIf="gearlists!=''" class="list-flex">
+	<ion-card class="ml-0 mr-0 mt-0 w-100 product-holder"  *ngFor="let item of gearlists" (click)="geardetails(item.id)">
+			<img *ngIf="item.gearsimages.length != 0" src="{{imagelink + item.gearsimages[0].name}}" alt="">
+			<img *ngIf="item.gearsimages.length == 0" src="assets/imgs/camera.png" alt="">
+		<ion-card-content *ngIf="gearlists?.length!=0">
+			<h6>{{item.product_name}}</h6>
+			<p class="price">£{{item.price}}</p>
+		</ion-card-content>
+		<ion-card-content class="button-holder" *ngIf="gearlists?.length!=0">
+			<ion-grid class="p-0">
+				<ion-row>
+					<!-- <ion-col col-6 class="pl-0"><button block ion-button color="primary">Add to cart</button></ion-col> -->
+					<ion-col col-6 class="pr-0"><button block ion-button color="primary" >View Details</button></ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
+</ion-list>
+
+	<ion-card class="ml-0 mr-0 mt-0 w-100 product-holder" *ngIf="gearlists==''">
+	
+		
+			<ion-card-content>
+				<h6>No Search Gear Available</h6>
+				<!-- <p class="price">$ {{item.price}}</p> -->
+			</ion-card-content>
+		
+		</ion-card>
+
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<ion-title>Footer</ion-title>
+	</ion-toolbar>
+</ion-footer>

@@ -1,0 +1,212 @@
+<!--
+  Generated template for the FilterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Filter</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-card class="m-0 w-100">
+		<ion-card-content class="options-wrap">
+			<!-- <ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-label>Category</ion-label>
+					<ion-select>
+						<ion-option value="">All</ion-option>
+						<ion-option value="">Cars (720)</ion-option>
+						<ion-option value="">Suv (897)</ion-option>
+					</ion-select>
+				</ion-item>
+			</ion-list> -->
+			<form [formGroup]="form" (ngSubmit)="bikesearch(form.value)" #BkForm="ngForm">
+			<p class="heading">Keyword Serch</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					
+			<ion-input type="text" value="" formControlName="ser_val"  placeholder="Search By Keyword"></ion-input>
+			</ion-item>
+			</ion-list>
+			<h6 class="sub-title">Options</h6>
+			<p class="heading">Postal Code</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-label>PIN</ion-label>
+			<ion-input type="text" value="" formControlName="postal_code"  placeholder="Search By Postal Code"></ion-input>
+			</ion-item>
+			</ion-list>
+			<!-- <p class="heading">Distance</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-label>PIN</ion-label>
+			<ion-input type="text" value=""  placeholder="Search By Postal Code"></ion-input>
+			</ion-item>
+			</ion-list> -->
+
+			<p class="heading">Distance</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-label>Nationwide</ion-label>
+					<ion-select formControlName="distance">
+							<ion-option *ngFor="let item of distancearray" >{{item}}</ion-option>
+						
+					</ion-select>
+				</ion-item>
+				</ion-list>
+
+
+			<p class="heading">Make</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-label>Make</ion-label>
+					<ion-select formControlName="make_id">
+							<ion-option *ngFor="let item of make" value="{{item.id}}">{{item.make_name}}</ion-option>
+						
+					</ion-select>
+				</ion-item>
+				
+			</ion-list>
+			<p class="heading">Model</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-label>Model</ion-label>
+					<ion-select formControlName="model_id">
+							<ion-option  *ngFor="let item of model" value="{{item.id}}">{{item.model_name}}</ion-option>
+					</ion-select>
+				</ion-item>
+			</ion-list>
+			<p class="heading">Price</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-label>Min </ion-label>
+					<ion-input type="text" value="" formControlName="min_price"  placeholder="Search By Min price"></ion-input>
+					<!-- <ion-select>
+						<ion-option value="">$1</ion-option>
+						<ion-option value="">$2</ion-option>
+					</ion-select> -->
+				</ion-item>
+				<ion-item class="pl-0">
+					<ion-label>Max TL</ion-label>
+					<ion-input type="text" value="" formControlName="max_price"  placeholder="Search By Max Price"></ion-input>
+					<!-- <ion-select>
+						<ion-option value="">$10</ion-option>
+						<ion-option value="">$11</ion-option>
+					</ion-select> -->
+				</ion-item>
+				<!-- <ion-item class="pl-0">
+					<ion-label>Currency</ion-label>
+					<ion-select>
+						<ion-option value="u">USD</ion-option>
+						<ion-option value="e">EUR</ion-option>
+					</ion-select>
+				</ion-item> -->
+			</ion-list>
+			<p class="heading">Engine Capacity</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-label>Min CC</ion-label>
+					<ion-input type="text" value="" formControlName="min_cc"  placeholder="Search By Min price"></ion-input>
+					
+				</ion-item>
+				<ion-item class="pl-0">
+					<ion-label>Max CC</ion-label>
+					<ion-input type="text" value="" formControlName="max_cc"  placeholder="Search By Max Price"></ion-input>
+				</ion-item>
+				
+			</ion-list>
+
+			<p class="heading">Make year</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-label>Min </ion-label>
+					<ion-input type="text" value="" formControlName="min_year"  placeholder="Search By Min price"></ion-input>
+					
+				</ion-item>
+				<ion-item class="pl-0">
+					<ion-label>Max </ion-label>
+					<ion-input type="text" value="" formControlName="max_year"  placeholder="Search By Max Price"></ion-input>
+				</ion-item>
+				
+			</ion-list>
+			<p class="heading">Mileage</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-label>Min </ion-label>
+					<ion-input type="text" value="" formControlName="min_milage" placeholder="Search By Min price"></ion-input>
+					
+				</ion-item>
+				<ion-item class="pl-0">
+					<ion-label>Max </ion-label>
+					<ion-input type="text" value="" formControlName="max_milage"  placeholder="Search By Max Price"></ion-input>
+				</ion-item>
+				
+			</ion-list>
+
+			<p class="heading">Color</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-label>Color</ion-label>
+					<ion-select formControlName="color">
+							<ion-option *ngFor="let item of colour" value="{{item.id}}">{{item.name}}</ion-option>
+						  </ion-select>
+				</ion-item>
+			</ion-list>
+			<p class="heading">Post By</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-label>Post By</ion-label>
+					<ion-select formControlName="post_by">
+						<ion-option value="P">Private</ion-option>
+						<ion-option value="T">Trade</ion-option>
+					</ion-select>
+				</ion-item>
+			</ion-list>
+			<p class="heading">Fuel Type</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-label>Fuel Type</ion-label>
+					<ion-select formControlName="fuel_tpe">
+							<ion-option value="">Any</ion-option>
+						<ion-option value="P">Petrol</ion-option>
+						<ion-option value="D">Diesel</ion-option>
+						<ion-option value="E">Electric</ion-option>
+					</ion-select>
+				</ion-item>
+			</ion-list>
+			<p><button ion-button round >SEARCH</button></p>
+			</form>
+			<!-- <ion-grid class="p-0">
+				<ion-row>
+					<ion-col col-12 class="pl-0">
+						<ion-item class="custom-checkbox">
+							<ion-label>Ads with Photo</ion-label>
+							<ion-checkbox color="dark"></ion-checkbox>
+						</ion-item>
+						<ion-item class="custom-checkbox">
+							<ion-label>Ads with Video</ion-label>
+							<ion-checkbox color="dark"></ion-checkbox>
+						</ion-item>
+					</ion-col>
+				</ion-row>
+			</ion-grid> -->
+			
+		</ion-card-content>
+	</ion-card>
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<ion-grid class="p-0">
+			<ion-row>
+				<ion-col col-6 class="pt-0 pb-0"><button ion-button block color="danger">Cancel</button></ion-col>
+				<ion-col col-6 class="pt-0 pb-0"><button ion-button block>Apply</button></ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-toolbar>
+</ion-footer>

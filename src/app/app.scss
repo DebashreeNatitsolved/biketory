@@ -14,3 +14,218 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+    $max: breakpoint-max($name, $breakpoints);
+    @if $max {
+      @media (max-width: $max) {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+  
+  
+  // Name of the next breakpoint, or null for the last breakpoint.
+  //
+  //    >> breakpoint-next(sm)
+  //    md
+  //    >> breakpoint-next(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+  //    md
+  //    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
+  //    md
+  @function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+    $n: index($breakpoint-names, $name);
+    @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+  }
+  .marginright{
+    margin-right: 5px;
+  }
+  
+  // Maximum breakpoint width. Null for the largest (last) breakpoint.
+  // The maximum value is calculated as the minimum of the next one less 0.1.
+  //
+  //    >> breakpoint-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+  //    767px
+  @function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+    $next: breakpoint-next($name, $breakpoints);
+    @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
+  }
+  
+  
+  // Creates text alignment classes based on screen size
+  // TODO this would be nice to add to the framework
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      // Provide text `[text-{bp}]` attributes for aligning text based on screen size
+      [text#{$infix}-center] {
+        text-align: center;
+      }
+  
+      [text#{$infix}-left] {
+        text-align: left;
+      }
+  
+      [text#{$infix}-right] {
+        text-align: right;
+      }
+  
+      [hidden#{$infix}-up] {
+        display: none;
+      }
+    }
+  
+    @include media-breakpoint-down($breakpoint, $grid-breakpoints) {
+      [hidden#{$infix}-down] {
+        display: none;
+      }
+    }
+  }
+	//@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+	
+	
+@font-face {
+font-family: 'calibri-regular';
+src: url('../assets/fonts/calibri-regular.eot'); /* IE9 Compat Modes */
+src: url('../assets/fonts/calibri-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+   url('../assets/fonts/calibri-regular.woff2') format('woff2'), /* Super Modern Browsers */
+   url('../assets/fonts/calibri-regular.woff') format('woff'), /* Pretty Modern Browsers */
+   url('../assets/fonts/calibri-regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+   url('../assets/fonts/calibri-regular.svg#calibri-regular') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+font-family: 'calibri-light';
+src: url('../assets/fonts/calibri-light.eot'); /* IE9 Compat Modes */
+src: url('../assets/fonts/calibri-light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+   url('../assets/fonts/calibri-light.woff2') format('woff2'), /* Super Modern Browsers */
+   url('../assets/fonts/calibri-light.woff') format('woff'), /* Pretty Modern Browsers */
+   url('../assets/fonts/calibri-light.ttf')  format('truetype'), /* Safari, Android, iOS */
+   url('../assets/fonts/calibri-light.svg#calibri-light') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+font-family: 'calibribold';
+src: url('../assets/fonts/calibribold.eot'); /* IE9 Compat Modes */
+src: url('../assets/fonts/calibribold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+   url('../assets/fonts/calibribold.woff2') format('woff2'), /* Super Modern Browsers */
+   url('../assets/fonts/calibribold.woff') format('woff'), /* Pretty Modern Browsers */
+   url('../assets/fonts/calibribold.ttf')  format('truetype'), /* Safari, Android, iOS */
+   url('../assets/fonts/calibribold.svg#calibribold') format('svg'); /* Legacy iOS */
+}
+	
+	
+	
+	body, h1,h2,h3,h4,h5,h6,p,b,span,label,input,.label, .select-text, a, li, .segment-button, .toolbar-title, div{font-family: 'calibri-regular', sans-serif;}
+	.button-md{text-transform: none;height:2.8em; font-family: 'calibri-regular', sans-serif; font-size:1.6rem}
+	.button-ios{text-transform: none;height:2.8em; font-family: 'calibri-regular', sans-serif; font-size:1.6rem}
+	.item-md,.item-ios{font-size:1.6rem}
+	ion-content.dark-bg.content {background-color:#3f475f !important}
+	
+	h6 {font-size: 1.5rem;}
+	
+  .side-bar-header{background: #3f475f;padding:12px;
+    ion-thumbnail img{border-radius: 100%;width:70px !important;height:70px!important;}
+    .item-inner{border-bottom:0 !important}
+    h2{color:#fff;font-weight:400;font-size:18px;}
+    p{color:#fff;font-weight:300;font-size:12px;}
+    .label{margin-right:0; margin-top:0}
+    ion-thumbnail[item-start] {margin-right:10px !important;}
+  }
+  .sidepanel-list{border:0;box-shadow: none; margin-left:0; margin-right:0; width:100%}
+  .sidepanel-list ion-item{border-bottom:1px solid #e1e1e1;color:#555;font-size: 1.3rem}
+	.sidepanel-list ion-icon.icon {min-height: 2.8rem;font-size: 2rem;line-height: 1.5;}
+	.sidepanel-list .item-inner{margin-left:5px !important}
+	.text-center{text-align: center !important}
+	.text-uppercase{text-transform: uppercase !important}
+	
+	.p-0{padding: 0px !important;}
+	.p-t-5{padding-top: 5px !important;}
+	.p-b-5{padding-bottom: 5px !important;}
+	.pl-0{ padding-left: 0 !important;}
+	.pr-0{ padding-right: 0 !important;}
+	.pt-0{ padding-top: 0 !important;}
+	.pb-0{ padding-bottom: 0 !important;}
+	.m-0{margin: 0px !important;}
+	.mt-0{ margin-top: 0 !important;}
+	.mb-0{ margin-bottom: 0 !important;}
+	.mr-0{ margin-right: 0 !important;}
+	.ml-0{ margin-left: 0 !important;}
+	.m-t-5{margin-top: 5px !important;}
+	.m-t-10{margin-top: 10px !important;}
+	.m-t-15{margin-top: 15px !important;}
+	.m-b-5{margin-bottom: 5px !important;}
+	.m-b-10{margin-bottom: 10px !important;}
+	.m-b-15{margin-bottom: 15px !important;}
+	.m-b-20{margin-bottom: 20px !important;}
+	.w-100{width:100% !important;}
+  
+ 	ion-header .toolbar-background{ background-color: #1e1e1f;}
+ 	ion-footer .toolbar-background{ background-color: #f4f4f4;}
+	.bar-button-default{color: #fff; }
+	.text-white{color: #fff;}
+	ion-title .toolbar-title{color:#fff!important;; font-weight:300!important; font-size: 1.65rem;}
+	
+	.title{text-transform:none; color: #fff; font-weight: 300 !important; font-size:1.65rem}
+	
+	.alert-ios .alert-button, .alert-md .alert-button, .alert-md [aria-checked=true] .alert-radio-label, .alert-ios [aria-checked=true] .alert-radio-label{color:#3f5485}
+	.select-text{font-size:1.2rem}
+	
+	.alert-md .alert-radio-inner{background-color:#3f5485}
+	.alert-md [aria-checked=true] .alert-radio-icon, .alert-ios [aria-checked=true] .alert-radio-inner {border-color: #3f5485;}
+  .alert-md .alert-title {font-size: 20px;}
+  
+  /*------------------Custom Tabs ------------------------*/
+.tabs-sell{width: 100%;}
+.tabs-sell ul{padding: 0;	margin: 0;display: flex;justify-content: center;align-items: center; 
+  position: relative; }
+.tabs-sell ul li{float: left;	list-style-type: none;	padding: 5px;	text-align: center;	width: 25%;	font-size: 14px;	color: #626262;	text-transform: uppercase;}
+.tabs-sell ul li a{
+	text-decoration:none;
+	color:#000;
+	font-weight: normal;
+  opacity: 0.5;
+  font-size: 13px;
+}
+.tabs-sell ul li a:hover, .tabs-sell ul li a.activ{
+	opacity: 1;
+}
+.tabs-sell ul li .icon{
+	width: 25px;
+	height: auto;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto ;
+}
+
+.Bike{
+ width: 19px!important; 
+}
+.count{
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0;
+  right: 22px;
+  background: red;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 50px;
+  text-align: center;
+  line-height: 18px;
+}
+
+.mt-5{
+  font-size: 12px!important;
+}
+
+.padding-left-50{
+  padding-left: 80px;
+}
+.back-button {display: block;}

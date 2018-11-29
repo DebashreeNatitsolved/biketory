@@ -1,0 +1,92 @@
+<!--
+  Generated template for the CartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <ion-buttons start>
+        <button ion-button icon-only>
+          <!-- <ion-icon name="arrow-back"></ion-icon> -->
+        </button>
+      </ion-buttons>
+      <ion-title>Cart</ion-title>
+      
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content class="content-bg">
+  <div *ngIf="no_cart==1">
+    <ion-card *ngFor="let item of cartlist ; let i = index">
+  
+        <ion-item class="item-cart" >
+          <ion-thumbnail item-start *ngIf="item.image">
+            <img src="{{item.image }}" alt="">
+          </ion-thumbnail>
+          <ion-thumbnail item-start *ngIf="!item.image">
+              <img src="assets/imgs/camera.png" alt="">
+            </ion-thumbnail>
+          <h3>{{item.name}}</h3>
+          <!-- <p> <span class="available-text">Abailable 2</span> item(s)/Sold 0 item(s)</p> -->
+           <p> <span class="orng-text"> <b>${{item.price}}</b></span> <!-- <span  class="text-line-through">$120.99</span> <span class="red-text">25% off</span> </p> -->
+          <div class="in-de-cres-area">
+            <button ion-button color="light" (click)="decriment(i)">
+                <ion-icon name="remove"></ion-icon>
+            </button>
+            <div class="value-box">{{item.quantity}}</div>
+            <button ion-button color="light" (click)="incriment(i)">
+              <ion-icon name="add"></ion-icon>
+            </button>
+             <div class="add-remove-btn2">
+          <!-- <button ion-button color="light"> <ion-icon name="heart"></ion-icon> Add To Wishlist</button> -->
+          <button ion-button color="light" (click)="removecart(item.id)"> <ion-icon name="trash"></ion-icon></button>
+        </div>
+          </div>
+         
+        </ion-item>
+    </ion-card>
+    </div>
+  
+    <ion-card *ngIf="no_cart==''">
+    
+      <ion-item class="item-cart">
+       
+        <h3>No items in your cart.</h3>
+       
+       
+      </ion-item>
+    </ion-card>
+  
+    <ion-card *ngIf="no_cart==1">
+      <ion-card-header class="price-det">
+         PRICE DETAILS
+      </ion-card-header>
+    
+      <ion-item p-0 >
+        <div class="price-det-area">
+          <span> <b>Price</b> ({{total_item}} items)</span>
+          <span> <b> $ {{total_price}}</b> </span>
+        </div>
+        <div class="price-det-area border-btm">
+          <span>
+            <b>Delivery</b></span>
+          <span class="free">FREE</span>
+        </div>
+        <div class="price-det-area">
+          <span>
+            <b>Amount Payable</b> ({{total_item}} items)</span>
+          <span>
+            <b> $ {{total_price}}</b>
+          </span>
+        </div>
+        <div class="price-det-area" class="p-0 margin-bottom-100"><button ion-button full (click)="goForCheckOut()">Proceed To Checkout</button></div>
+      </ion-item>
+    </ion-card>
+  
+  
+  </ion-content>
+  

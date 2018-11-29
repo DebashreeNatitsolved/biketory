@@ -1,0 +1,162 @@
+<!--
+  Generated template for the BuyerProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>BuyerProfilePage</ion-title>
+  </ion-navbar>
+  <ion-item>
+      <ion-thumbnail>
+        <img src="https://cap.stanford.edu/profiles/viewImage?profileId=19141&type=square&ts=1509532892453">
+        <button ion-button color="primary" (click)="uploadPhoto()">Open Gallery</button> -->
+        <!-- <img [src]="base64Image" *ngIf="base64Image" />
+
+        <button ion-button color="dark" (click)="takePhoto()">Take Photo</button>
+<img [src]="imageURL" *ngIf="imageURL" /> -->
+      <!-- </ion-thumbnail>
+   
+   <button ion-button item-end (click)="goToChangePassPage()">Change Password</button>
+   <button ion-button item-end (click)="goToEditPage()">Edit Profile</button>
+  </ion-item>
+</ion-header>
+
+
+<ion-content padding>
+    <p><span>Name: </span>{{firstName}}</p>
+    <p><span>Mobile Number: </span>{{user_details.phone}}</p>
+    <p><span>Address: </span>{{user_details.address}}</p>
+    <p><span>City: </span>{{user_details.city}}</p>
+    <p><span>Country: </span>{{user_details.country}}</p>
+    <p><span>Postcode: </span>{{user_details.postcode}}</p>
+</ion-content> -->
+<ion-header>
+    <ion-navbar>
+        <ion-buttons item->
+          <button ion-button icon-only>
+              
+          </button>
+        </ion-buttons>
+               
+      </ion-navbar>
+</ion-header>
+
+
+<ion-content class="grey-bg">
+    <div class="big-banner">
+      
+      <img src="assets/imgs/big-banner.png" alt="" />
+    </div>
+    <div class="detail-box">
+      <div class="user">
+          
+              <a (click)="editProfilePic()"><ion-icon name="create"></ion-icon></a>
+                <div class="avatar" *ngIf="!pathForImage(lastImage)">
+                  <img src="assets/imgs/avtar.png" alt="">
+                </div>
+      
+                <div class="avatar" *ngIf="pathForImage(lastImage)">
+                    <ion-thumbnail>
+                    <img src="{{pathForImage(lastImage)}}"/>
+                   </ion-thumbnail>
+                  </div>
+          
+
+        <!-- <div class="avatar">
+           <img src="assets/imgs/avtar.png" alt="" />
+           
+        </div> -->
+        <div class="name">
+          <h2>{{firstName}}</h2>
+          <p><span class="mobile">
+            <img src="assets/imgs/phone-icon.png" alt="" />
+          </span>
+             <b *ngIf="user_details.phone">{{user_details.phone}}</b> Verified <img src="assets/imgs/verified.png" alt="" class="verify"/>
+            <span>
+              <button ion-button round block start style="width: 51px;" (click)="goToEditPage()"><ion-icon name="create"></ion-icon>Edit</button>
+            </span>
+          </p>
+        </div>
+      </div>
+      <div>
+        <ion-segment [(ngModel)]="pet" class="custom-segment">
+          <ion-segment-button value="recent">Recent Product</ion-segment-button>
+          <!-- <ion-segment-button value="puppies">Past Product</ion-segment-button> -->
+        </ion-segment>
+      </div>
+      <div class="desc">
+        <div class="segment-body">
+          <ion-list >
+            <ion-item>
+              <h4 class="mt-0">BIKES</h4>
+              <div class="flex-wrapper">
+                  <ion-card class="ml-0 mr-0 mt-0 w-100 product-holder" *ngFor="let item of viewedArray">
+                      <img src="assets/imgs/camera.png" alt="">
+                      <ion-card-content>
+                        <h6>{{item.reg_number}}</h6>
+                        <p class="price">${{item.price}}.00</p>
+                      </ion-card-content>
+                      <ion-card-content >
+                        <p class="model" >Model:
+                          <!-- <b *ngIf="item.Bikemodels=='null'">9949</b>
+                          
+                          <b *ngIf="item.Bikemodels!='null'">000</b> -->
+                        </p>
+                        <p class="model">Make:
+                          <!-- <b>2017</b> -->
+                        </p>
+                      </ion-card-content>
+                    </ion-card>
+              
+              </div>
+            </ion-item>
+           
+          </ion-list>
+          
+        </div>
+      </div>
+    </div>
+  
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar>
+      <div class="tabs-sell">
+        <ul>
+          <li>
+            <a href="">
+              <div class="icon">
+                <img src="assets/imgs/tab-icon-sell/profile-h.png" alt="" />
+              </div>
+              Profile
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="icon">
+                <img src="assets/imgs/tab-icon-sell/bike-h.png" alt="" />
+              </div>
+              Sell Bike
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="icon">
+                <img src="assets/imgs/tab-icon-sell/gear-h.png" alt="" />
+              </div>
+              Sell Gear
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="icon">
+                <img src="assets/imgs/tab-icon-sell/profile-h.png" alt="" />
+              </div>
+              Chats</a>
+          </li>
+        </ul>
+      </div>
+    </ion-toolbar>
+  </ion-footer>

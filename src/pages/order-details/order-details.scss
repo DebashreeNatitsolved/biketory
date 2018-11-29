@@ -1,0 +1,82 @@
+page-order-details {
+    .scroll-content {
+        background: #e4e4e4;
+    }
+    .box{
+        width: 100%;
+        background: #fff;
+        -webkit-box-shadow: 0px 2px 5px 0px rgba(219,212,219,1);
+        -moz-box-shadow: 0px 2px 5px 0px rgba(219,212,219,1);
+        box-shadow: 0px 2px 5px 0px rgba(219,212,219,1);
+        padding: 10px 5px;
+        margin-bottom: 10px;
+    
+    }
+    .image-w{
+       height: 100px;
+        /* background: #000; */
+        overflow: hidden;
+        height: 97px;
+        border: #eeeeee 2px solid;
+    }
+    .image-w img{
+        max-width: 100%;
+    }
+    .titel2{
+        padding: 0px 0 0 9px;
+        font-size: 14px;
+        color: #585858;
+        margin: 0;
+        font-weight: bold;
+    }
+    .titel2 span{
+        float: right;
+    }
+    .titel3{
+        padding: 0px 0 0 9px;
+        font-size: 13px;
+        color: #585858;
+        margin: 5px 0 0 0;
+        font-weight: bold;
+    }
+    .titel3 span{
+        float: right;
+    }
+    .gra-bg{
+        background:rgb(248, 245, 245);
+        padding: 5px;
+        font-size: 15px;
+        margin-bottom: 14px;
+        font-weight: 700;
+    }
+
+    .gra-bg span{
+        float: right;
+        color: #635b5b;
+        font-weight: normal;
+        font-size: 13px;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    .price-text{
+            color: #f56f30 !important;
+    }
+.line2{
+    width: 100%;
+    background: #d4d1d1;
+    border-width: 2px;
+    
+}
+
+.line3{
+    width: 100%;
+    background: #d4d1d1;
+    border-width: .5px;
+    
+}
+.margin-bottom-50{
+    margin-bottom: 50px;
+}
+
+    
+}

@@ -1,0 +1,110 @@
+<!--
+  Generated template for the SellerOrderListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>Order Listing Page</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <!-- <ion-content padding>
+    <ion-list class="pl-0"> -->
+        <!-- <h4 class="ship-text">Order Listing</h4> -->
+        <!-- <ion-item> -->
+            <!-- <ion-grid class="margin-botton-10" *ngFor="let item of orderArray"> -->
+  
+                 <!-- <ion-row class="line">
+                   <! <ion-col>
+                    <h4>Order Id</h4>
+                    </ion-col> -->
+                   <!-- <ion-col>
+                   <p>#00{{item.id}}</p>
+                    </ion-col>
+                  </ion-row> --> 
+  
+                  <!-- <ion-row class="line">
+                      <ion-col>
+                       <h4>Product ID </h4>
+                       </ion-col>
+                      <ion-col>
+                      <p>#00{{item.product_id}}</p>
+                       </ion-col>
+                   </ion-row> -->
+
+
+                  <!-- <ion-row class="line">
+                     <ion-col>
+                      <h4>Payment Status</h4>
+                      </ion-col>
+                     <ion-col>
+                     <p>Pending</p>
+                      </ion-col>
+                  </ion-row> -->
+  
+                 <!-- <ion-row class="line"> -->
+                     <!-- <ion-col>
+                      <h4>Payment Mode</h4>
+                      </ion-col> -->
+                     <!-- <ion-col>
+                     <p>{{item.order.payment_mode}}</p>
+                      </ion-col> -->
+                  <!-- </ion-row> -->
+  
+                    <!-- <ion-row class="line"> -->
+                     <!-- <ion-col>
+                      <h4>Order Date</h4>
+                      </ion-col> -->
+                     <!-- <ion-col>
+                     <p>{{(item.order.order_date)|date:'dd/MMM/yyyy, hh:mm a'}}</p>
+                      </ion-col>
+                    </ion-row> -->
+  
+                  <!-- <ion-row class="line"> -->
+                     <!-- <ion-col>
+                      <h4>Price</h4>
+                      </ion-col> -->
+                     <!-- <ion-col>
+                     <p>{{item.price}}</p>
+                      </ion-col>
+                  </ion-row>
+                  <ion-row class="line">
+                      <ion-col text-center>
+                        <button ion-button  class="btnSize"  round (click)="goToSellerOrderDetails(item.id)">View Details</button>
+                       </ion-col>
+                   </ion-row>
+  
+                </ion-grid> -->
+
+
+
+    <ion-content>
+        <!-- <ion-grid>
+            <ion-row class="main-box">
+                <ion-col col-3>Order-Id</ion-col>
+                <ion-col col-3>Total Price</ion-col>
+                <ion-col col-3>Order Date</ion-col>
+                <ion-col col-3>Action</ion-col>
+            </ion-row>
+          </ion-grid> -->
+      
+          <ion-grid>
+            <ion-row class="line" *ngFor="let item of orderArray">
+              <ion-col col-3>#00{{item.order_id}}</ion-col>
+              <ion-col col-4>{{(item.order.order_date)|date:'dd-MMM, yyyy'}}</ion-col>
+              <ion-col col-3>${{item.order.total_price}}.00</ion-col>
+              
+              <ion-col col-2><button class="btn-list" ion-button (click)="goToSellerOrderDetails(item.order_id)">View</button></ion-col>
+              <hr class="line2">
+            </ion-row>
+          </ion-grid>
+      </ion-content>
+       
+    
