@@ -63,7 +63,7 @@
 
 
 <ion-content>
-  <ion-grid>
+  <ion-grid  *ngIf="orderArray!=''">
     <!-- <ion-grid>
         <ion-row class="main-box">
             <ion-col col-3>Order-Id</ion-col>
@@ -84,6 +84,10 @@
           <ion-col col-2><button class="btn-list" ion-button (click)="goToOrderDetails(item.id)">View</button></ion-col>
           <hr class="line2">
         </ion-row>
-        
+      
       </ion-grid>
+      <div *ngIf="orderArray==''">
+        No Result found
+                </div>
+                
   </ion-content>

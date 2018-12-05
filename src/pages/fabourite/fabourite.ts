@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams , Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams , Events,AlertController } from 'ionic-angular';
 import {BikeProvider} from '../../providers/bike/bike'
 
 /**
@@ -25,8 +25,11 @@ export class FabouritePage {
   gearImgString: any;
   bikeImgString: any;
   gearImg:any;
+  bikelistFound:any;
+  gearlistFound:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams ,public events:Events, 
+  constructor(public navCtrl: NavController, 
+    public alertCtrl:AlertController,public navParams: NavParams ,public events:Events, 
     public bikeService: BikeProvider) {
    events.publish('hideHeader', { isHidden: false});
 
@@ -50,32 +53,55 @@ export class FabouritePage {
       
       if(details.Ack == 1){
         
-        console.log(details.wishlistgeardata);
+      
         this.wishlistGearArray=details.wishlistgeardata;
 
-        console.log(this.wishlistGearArray);
-        console.log(this.wishlistGearArray.length);
+        console.log('wishlistGearArray',this.wishlistGearArray);
+      
         this.wishlistBikeArray=details.wishlistbikedata;
-        console.log (this.wishlistBikeArray);
-       if ((this.wishlistGearArray[0].gear.upload.length)!=0)
-       {
-         console.log ('img found')
-         this.gearImg=1;
-       }else
+        console.log ('wishlistBikeArray',this.wishlistBikeArray);
+
+      //  if ((this.wishlistGearArray[0].gear.upload.length)!=0)
+      //  {
+      //    console.log ('img found')
+      //    this.gearImg=1;
+      //  }else
        
-       {
-        console.log ('img not found')
-        this.gearImg=0;
-       }
-        
+      //  {
+      //   console.log ('img not found')
+      //   this.gearImg=0;
+      //  }
+        if (this.wishlistGearArray.length==0)
+        {
+          this.gearlistFound=0;
+        }else{
+          this.gearlistFound=1;
+        }
+
+        if (this.wishlistBikeArray.length==0)
+        {
+          this.bikelistFound=0;
+        }else{
+          this.bikelistFound=1;
+        }
 
         
         console.log(details.gearimagepath);
         this.gearImgString=details.gearimagepath;
         this.bikeImgString=details.bikeimagepath;
   }
+  else{
+console.log ('else part')
+  }
 
 
+},err=>{
+
+  const alert = this.alertCtrl.create({
+    title: 'Service Failed!',
+    buttons: ['OK']
+  });
+  alert.present();
 });
 
 
@@ -84,15 +110,7 @@ export class FabouritePage {
 
   goToGearPage(id)
   {
-  //     for (let i=0;i<this.wishlistGearArray.length;i++)
-  // {
-  //   console.log(this.wishlistGearArray[i].status);
-  //   if (this.wishlistGearArray[i].status=='gears')
-    
-  //   {
-  //     this.navCtrl.push ('GeardetailsPage',{'id':id});
-  //   }
-  // }
+
 
  if (this.wishlistGearArray[0].status=='gears')
   {
@@ -102,15 +120,7 @@ export class FabouritePage {
 
   goToBikePage(id)
   {
-  //     for (let i=0;i<this.wishlistBikeArray.length;i++)
-  // {
-  //   console.log(this.wishlistBikeArray[i].status);
-  //   if (this.wishlistBikeArray[i].status=='bikes')
-  //   {
-  //     this.navCtrl.push ('DetailsPage',{'id':id});
-  //   }
-  // }
-
+ 
   if (this.wishlistBikeArray[0].status=='bikes')
   {
     this.navCtrl.push ('DetailsPage',{'id':id});
@@ -119,20 +129,4 @@ export class FabouritePage {
 
   
 
-
-  // toggleSearchbar() { 
-  //   this.showSearchbar = !this.showSearchbar;
-  //   //this.content.resize();
-  // }
-  // search(value){
-  //   console.log('here');
-  //   console.log(this.myInput)
-  // }
-  // onCancel(value)
-  // {
-  //   this.showSearchbar = !this.showSearchbar;
-  //   this.myInput = '';
-  //   console.log(this.myInput);
-  //   console.log('cancel');
-  // }
 }

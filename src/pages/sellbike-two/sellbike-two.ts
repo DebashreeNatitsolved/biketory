@@ -114,7 +114,7 @@ mileage=[];
     let currentDate= new Date().getFullYear();
     console.log(currentDate);
     
-    for (let year=lastYear;year<currentDate;year++)
+    for (let year=currentDate;year>=lastYear;year--)
     {
             range.push(year)   
     }

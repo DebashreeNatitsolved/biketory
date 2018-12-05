@@ -95,7 +95,7 @@
             </ion-row>
           </ion-grid> -->
       
-          <ion-grid>
+          <ion-grid *ngIf="orderArray!=''">
             <ion-row class="line" *ngFor="let item of orderArray">
               <ion-col col-3>#00{{item.order_id}}</ion-col>
               <ion-col col-4>{{(item.order.order_date)|date:'dd-MMM, yyyy'}}</ion-col>
@@ -105,6 +105,9 @@
               <hr class="line2">
             </ion-row>
           </ion-grid>
+          <div *ngIf="orderArray==''">
+            No Result found
+                    </div>
       </ion-content>
        
     

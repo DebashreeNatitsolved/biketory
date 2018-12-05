@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController} from 'ionic-angular';
 import {OrderDetailsPage} from '../order-details/order-details';
 import { BikeProvider } from '../../providers/bike/bike';
 import { Storage } from '@ionic/storage';
@@ -25,6 +25,7 @@ export class OrderListingPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
+    public alertCtrl:AlertController,
     public bikeService: BikeProvider, private storage: Storage) {
 
       this.user_details =  JSON.parse(localStorage.getItem('userData'));
@@ -71,6 +72,17 @@ export class OrderListingPage {
        
 
   }
+  else
+  {
+    this.orderArray='';
+  }
+},err=>{
+
+  const alert = this.alertCtrl.create({
+    title: 'Service Failed!',
+    buttons: ['OK']
+  });
+  alert.present();
 });
   }
 

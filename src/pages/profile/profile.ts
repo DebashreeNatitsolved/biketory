@@ -294,4 +294,10 @@ this.buyerimage=this.uploadsuccess.image_url+this.uploadsuccess.image_name
     this.presentToast('Error while uploading file.');
   });
 }
+
+editBannerImage()
+{
+  console.log('banner')
+}
+
 }
