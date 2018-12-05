@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ActionSheetController,ToastController,LoadingController,Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, ToastController, AlertController, LoadingController, Platform } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service'
-import {ChangepasswordPage} from '../changepassword/changepassword'
-import {EditBuyerProfilePage} from '../edit-buyer-profile/edit-buyer-profile'
+import { ChangepasswordPage } from '../changepassword/changepassword'
+import { EditBuyerProfilePage } from '../edit-buyer-profile/edit-buyer-profile'
 
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-import { Camera, CameraOptions,DestinationType } from '@ionic-native/camera';
+import { Camera, CameraOptions, DestinationType } from '@ionic-native/camera';
 import { File } from '@ionic-native/file';
 import { FilePath } from '@ionic-native/file-path';
 import { BikeProvider } from '../../providers/bike/bike';
-import {Storage} from '@ionic/storage'
+import { Storage } from '@ionic/storage'
 /**
  * Generated class for the BuyerProfilePage page.
  *
@@ -23,99 +23,97 @@ declare var cordova: any;
   templateUrl: 'buyer-profile.html',
 })
 export class BuyerProfilePage {
-  public firstName:any;
-  base64Image:any;
+  public firstName: any;
+  base64Image: any;
   imageURL: any;
   lastImage: string = null;
   viewedArray: any;
-  uploadsuccess:any;
-  buyerimage:any;
-  bfrLogin:any;
-  userImg:any;
+  uploadsuccess: any;
+  buyerimage: any;
+  bfrLogin: any;
+  userImg: any;
 
   public user_details
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public alertCtrl: AlertController,
     public auth: AuthServiceProvider,
-    public camera:Camera, 
-    public actionSheetCtrl: ActionSheetController,  
-    public loadingCtrl:LoadingController,
-    public toastCtrl: ToastController, 
+    public camera: Camera,
+    public actionSheetCtrl: ActionSheetController,
+    public loadingCtrl: LoadingController,
+    public toastCtrl: ToastController,
     private transfer: FileTransfer,
     private file: File,
     public platform: Platform,
     private filePath: FilePath,
-    public bikeService:BikeProvider,
-    public storage: Storage)
-    
-    {
-    this.user_details=  JSON.parse(localStorage.getItem('userData'));
+    public bikeService: BikeProvider,
+    public storage: Storage) {
+    this.user_details = JSON.parse(localStorage.getItem('userData'));
     console.log(this.user_details)
-    this.firstName = this.user_details.first_name+' '+this.user_details.last_name;
+    this.firstName = this.user_details.first_name + ' ' + this.user_details.last_name;
     // let lastName=user_details.last_name;
     console.log(this.firstName);
 
-    this.bfrLogin=this.user_details.pimg;
+    this.bfrLogin = this.user_details.pimg;
 
 
-    if (localStorage.getItem('buyerimage'))
-    {
-      this.userImg=JSON.parse(localStorage.getItem('buyerimage'));
-    
-    console.log('pimg null',this.bfrLogin)
+    if (localStorage.getItem('buyerimage')) {
+      this.userImg = JSON.parse(localStorage.getItem('buyerimage'));
+
+      console.log('pimg null', this.bfrLogin)
     }
 
-    else if (this.bfrLogin==null)
-    {
-      this.userImg='assets/imgs/avtar.png';
-    
-    console.log('pimg',this.bfrLogin)
+    else if (this.bfrLogin == null) {
+      this.userImg = 'assets/imgs/avtar.png';
+
+      console.log('pimg', this.bfrLogin)
     }
 
     // this.userImg=this.loginUser.image_url+this.loginUser.pimg
-    
-    
-  else if (this.bfrLogin)
-      {
-        // this.userImg=this.user_details.image_url+this.user_details.pimg
-        console.log(this.userImg)
-        
-      }
 
 
-    this.bikeService.recentlyViewed ().subscribe((res:any) => {
-      
-      if (res.Ack==1)
-      {
+    else if (this.bfrLogin) {
+      console.log('this.bfrLogin')
+      this.userImg = this.user_details.image_url + this.user_details.pimg
+      console.log(this.userImg)
+
+    }
+
+
+    this.bikeService.recentlyViewed().subscribe((res: any) => {
+
+      if (res.Ack == 1) {
         console.log('my data: ');
-        this.viewedArray=res.recentview;
-        console.log(this.viewedArray); 
+        this.viewedArray = res.recentview;
+        console.log(this.viewedArray);
       }
-});
+      else {
+        this.viewedArray = '';
+      }
+    }, err => {
+
+      const alert = this.alertCtrl.create({
+        title: 'Service Failed!',
+        buttons: ['OK']
+      });
+      alert.present();
+    });
 
   }
 
- 
 
-  // goToChangePassPage()
 
-  // {
-  //   this.navCtrl.push ('ChangepasswordPage');
-  // }
-
-  goToEditPage ()
-  {
+  goToEditPage() {
     console.log('hi')
-    this.navCtrl.push ('EditBuyerProfilePage');
+    this.navCtrl.push('EditBuyerProfilePage');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BuyerProfilePage');
 
-  
+
   }
 
-  editProfilePic()
-  {
+  editProfilePic() {
     console.log('edit profile picture')
     let actionSheet = this.actionSheetCtrl.create({
       enableBackdropDismiss: true,
@@ -139,16 +137,16 @@ export class BuyerProfilePage {
   }
 
 
-  uploadFromCamera(sourceType){
+  uploadFromCamera(sourceType) {
 
-    
+
     var options = {
       quality: 100,
       sourceType: sourceType,
       saveToPhotoAlbum: false,
       correctOrientation: true
     };
-   
+
     // Get the data of an image
     this.camera.getPicture(options).then((imagePath) => {
       // Special handling for Android library
@@ -158,12 +156,12 @@ export class BuyerProfilePage {
             let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
             let currentName = imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('?'));
             this.copyFileToLocalDir(correctPath, currentName, this.createFileName(currentName));
-          
-            
+
+
           });
 
-           
-         
+
+
       } else {
         var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
         var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
@@ -177,23 +175,23 @@ export class BuyerProfilePage {
 
   private createFileName(currentName) {
     var d = new Date(),
-    n = d.getTime(),
-   // newFileName=n+".jpg";
-    newFileName=currentName;
+      n = d.getTime(),
+      // newFileName=n+".jpg";
+      newFileName = currentName;
 
     return newFileName;
-    
+
   }
 
   private copyFileToLocalDir(namePath, currentName, newFileName) {
 
-   
-   console.log("CURRENTFILENAME",currentName);
+
+    console.log("CURRENTFILENAME", currentName);
     this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
       this.lastImage = newFileName;
-      console.log("NEWFILENAMEEEEEE",this.lastImage);
-      
-      this.uploadImage(this.lastImage); 
+      console.log("NEWFILENAMEEEEEE", this.lastImage);
+
+      this.uploadImage('', this.lastImage);
     }, error => {
       this.presentToast('Error while storing file.');
     });
@@ -210,23 +208,24 @@ export class BuyerProfilePage {
 
   public pathForImage(img) {
     // this.uploadImage();
-    console.log("IMAGGGEGGEGGEGE",img);
-    
-    if (img === undefined) {
+    console.log("IMAGGGEGGEGGEGE", img);
 
-     
-      return '';
-     
-    } 
+    if (img === undefined) {
+      console.log('Heeeeelllooo null')
+
+      return this.userImg;
+
+    }
     else {
 
-      console.log('else')
+      console.log('image')
       return cordova.file.dataDirectory + img;
     }
-    
+
   }
 
-  public uploadImage(lastimage) {
+  public uploadImage(data, lastimage) {
+    console.log('data', data, lastimage)
 
     let loading = this.loadingCtrl.create({
       content: 'Uploading Please Wait...'
@@ -241,48 +240,50 @@ export class BuyerProfilePage {
     // }
     // Destination URL
     var url = "http://111.93.169.90/team6/bike/api/users/userimageupload.json";
-   
+
     // File for Upload
     var targetPath = this.pathForImage(lastimage);
-   
+
     // File name only
     var filename = this.lastImage;
-   
+
     var options = {
-      fileKey: "photo",
+      fileKey: "pimg",
       photo: filename,
       chunkedMode: false,
       mimeType: "multipart/form-data",
-      params : {
-      'pimg':filename,
-      'id':this.user_details.id
-       }
-     // params : {'fileName': filename}
+      params: {
+        'pimg': filename,
+        'user_id': this.user_details.id
+      }
+      // params : {'fileName': filename}
     };
-    console.log("OPTIONS",options);
-    console.log('targetPath',targetPath)
-    const fileTransfer:FileTransferObject = this.transfer.create();
-   
-   console.log('create')
-   
+    console.log("OPTIONS", options);
+    console.log('targetPath', targetPath)
+    const fileTransfer: FileTransferObject = this.transfer.create();
+
+    console.log('create')
+
     // Use the FileTransfer to upload the image
     fileTransfer.upload(targetPath, url, options).then(data => {
-      console.log('spandanUPLOADDDD',data.response);
-      console.log('UPLOADDDD',JSON.parse(data.response));
-      this.uploadsuccess=JSON.parse(data.response);
-      if(this.uploadsuccess.ack==1){
+      console.log('data', data);
+      console.log('UPLOADDDD', JSON.parse(data.response));
+      this.uploadsuccess = JSON.parse(data.response);
+      if (this.uploadsuccess.Ack == 1) {
         loading.dismiss();
         this.presentToast('Image succesful uploaded.');
-console.log('image url',this.uploadsuccess.image_url+this.uploadsuccess.image_name)
-console.log(this.uploadsuccess.image_name)
 
-this.buyerimage=this.uploadsuccess.image_url+this.uploadsuccess.image_name
+        this.buyerimage = this.uploadsuccess.imagepath + this.uploadsuccess.imagename
 
         this.storage.ready().then(() => {
-        localStorage.setItem ('buyerimage',JSON.stringify(this.buyerimage))
+          localStorage.setItem('buyerimage', JSON.stringify(this.buyerimage))
+          localStorage.setItem('userData', JSON.stringify(this.uploadsuccess.userdetails));
         });
-       
-      }else{
+
+        console.log('Deb userdata',JSON.parse(localStorage.getItem('userData')))
+        console.log('Deb userdata',JSON.parse(localStorage.getItem('buyerimage')))
+
+      } else {
 
         loading.dismiss();
         this.presentToast('Time out. Try again.');
@@ -290,9 +291,17 @@ this.buyerimage=this.uploadsuccess.image_url+this.uploadsuccess.image_name
       }
 
     }, err => {
-      console.log("Error",err);
+      console.log("Error", err);
       loading.dismiss();
       this.presentToast('Error while uploading file.');
     });
   }
+
+
+  editBannerImage() {
+    console.log('banner')
+  }
+
+
+
 }

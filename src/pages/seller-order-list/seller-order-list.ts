@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
 import {BikeProvider} from '../../providers/bike/bike';
 import {SellerOrderDetailsPage} from '../seller-order-details/seller-order-details'
 /**
@@ -18,7 +18,9 @@ export class SellerOrderListPage {
   
   orderSet: any;
   public orderArray: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public bikeService:BikeProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public alertCtrl:AlertController,
+     public bikeService:BikeProvider) {
 
     let user_details:any =  JSON.parse(localStorage.getItem('userData'));
     console.log(user_details)
@@ -51,6 +53,16 @@ export class SellerOrderListPage {
         console.log(this.orderArray);
        
   }
+  else{
+    this.orderArray='';
+  }
+},err=>{
+
+  const alert = this.alertCtrl.create({
+    title: 'Service Failed!',
+    buttons: ['OK']
+  });
+  alert.present();
 });
   }
 

@@ -117,6 +117,7 @@ model:any;
 
   ionViewDidLoad() {
     
+    this.myApp.abc();
     if(localStorage.getItem('userData'))
     {
           this.loguser =  JSON.parse(localStorage.getItem('userData'));  
@@ -160,7 +161,7 @@ model:any;
     let lastYear= 1885;
 
     console.log(lastYear);
-    let currentDate= new Date().getFullYear()+1;
+    let currentDate= new Date().getFullYear();
     console.log(currentDate);
     
     for (let year=currentDate;year>=lastYear;year--)
