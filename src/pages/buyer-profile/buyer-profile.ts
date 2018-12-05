@@ -32,6 +32,8 @@ export class BuyerProfilePage {
   buyerimage: any;
   bfrLogin: any;
   userImg: any;
+  imageType:any;
+  bannerimage:any;
 
   public user_details
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -113,7 +115,12 @@ export class BuyerProfilePage {
 
   }
 
-  editProfilePic() {
+  editProfilePic(name) {
+
+    //2 for banner and 1 for profile
+    console.log('DDDD FROM',name)
+    this.imageType=name;
+    
     console.log('edit profile picture')
     let actionSheet = this.actionSheetCtrl.create({
       enableBackdropDismiss: true,
@@ -156,13 +163,10 @@ export class BuyerProfilePage {
             let correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
             let currentName = imagePath.substring(imagePath.lastIndexOf('/') + 1, imagePath.lastIndexOf('?'));
             this.copyFileToLocalDir(correctPath, currentName, this.createFileName(currentName));
-
-
           });
-
-
-
-      } else {
+      }
+       else 
+       {
         var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
         var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
         this.copyFileToLocalDir(correctPath, currentName, this.createFileName(currentName));
@@ -248,13 +252,14 @@ export class BuyerProfilePage {
     var filename = this.lastImage;
 
     var options = {
-      fileKey: "pimg",
+      fileKey: "file",
       photo: filename,
       chunkedMode: false,
       mimeType: "multipart/form-data",
       params: {
-        'pimg': filename,
-        'user_id': this.user_details.id
+        'file': filename,
+        'user_id': this.user_details.id,
+        'imagetype':this.imageType
       }
       // params : {'fileName': filename}
     };
@@ -273,6 +278,8 @@ export class BuyerProfilePage {
         loading.dismiss();
         this.presentToast('Image succesful uploaded.');
 
+        if (this.imageType=='1')
+        {
         this.buyerimage = this.uploadsuccess.imagepath + this.uploadsuccess.imagename
 
         this.storage.ready().then(() => {
@@ -282,6 +289,20 @@ export class BuyerProfilePage {
 
         console.log('Deb userdata',JSON.parse(localStorage.getItem('userData')))
         console.log('Deb userdata',JSON.parse(localStorage.getItem('buyerimage')))
+      }
+
+      else if (this.imageType=='2')
+      {
+      this.bannerimage = this.uploadsuccess.imagepath + this.uploadsuccess.imagename
+
+      this.storage.ready().then(() => {
+        localStorage.setItem('bannerimage', JSON.stringify(this.bannerimage))
+        localStorage.setItem('userData', JSON.stringify(this.uploadsuccess.userdetails));
+      });
+
+      console.log('Deb userdata',JSON.parse(localStorage.getItem('userData')))
+      console.log('Deb userdata',JSON.parse(localStorage.getItem('buyerimage')))
+    }
 
       } else {
 

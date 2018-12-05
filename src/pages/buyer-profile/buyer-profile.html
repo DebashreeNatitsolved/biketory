@@ -47,7 +47,7 @@
 
 <ion-content class="grey-bg">
     <div class="big-banner">
-      <a class="profile-icon" (click)="editProfilePic()">
+      <a class="profile-icon" (click)="editProfilePic('2')">
         <img src="assets/imgs/profile-icon.png">
       </a>
       <img src="assets/imgs/big-banner.png" alt="" />
@@ -55,7 +55,7 @@
     <div class="detail-box">
       <div class="user">
           
-              <a (click)="editProfilePic()"><ion-icon name="create"></ion-icon></a>
+              <a (click)="editProfilePic('1')"><ion-icon name="create"></ion-icon></a>
                 <div class="avatar" *ngIf="!pathForImage(lastImage)">
                   <img src="{{userImg}}" alt="">
                 </div>
