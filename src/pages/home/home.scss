@@ -10,11 +10,11 @@ page-home {
 	
 	.search-bike{background:#f4f4f4; box-shadow:none; text-align:center}
 	.search-bike h2, .shop-gear h2{font-size:1.8rem; font-family: 'calibribold'; text-transform:uppercase; margin-bottom: 10px}
-	.search-bike .button{box-shadow:none; height:3.6rem}
+	.search-bike .button{box-shadow:none;}
 
 	.shop-gear{background:#fff; box-shadow:none; text-align:center}
 	
-	.search-wrapper ion-item{border:1px solid #d2d2d2; border-radius:50px; min-height:3.7rem}
+	.search-wrapper ion-item{border:1px solid #d2d2d2; border-radius:50px; }
 	ion-label[fixed] {-webkit-box-flex: 0;-webkit-flex: 0 0 100px; -ms-flex: 0 0 50px; flex: 0 0 18px; width: 18px; min-width: 15px;  max-width: 20px; margin-top:5px; margin-bottom:5px}
 	.text-input{margin-top:5px; margin-bottom:5px}
 
@@ -62,10 +62,8 @@ page-home {
 .btnSearch{
 height:40px;
 background-color: gray;
-padding-top: 3px;
-
-
 }
+
 .border
 {
 	margin-bottom:10px;
@@ -81,9 +79,11 @@ padding-top: 3px;
 {
 	// width: 320px;
     background-color: white;
-    margin-bottom: 4px;  
-    border-radius: 50px;
-    height: 20px !important;
+    margin-bottom: 5px;  
+	border-radius: 50px;
+	border: 1px solid #d7d4d4;
+	max-height: 20px;
+    // height: 20px !important;
 }
 .btnMenu{
 	height:90px;
@@ -101,7 +101,9 @@ padding-top: 3px;
 		margin-bottom: 50px;
 	}
 
-
+.hide-bar{
+	width: 100%;
+}
 
 
 
