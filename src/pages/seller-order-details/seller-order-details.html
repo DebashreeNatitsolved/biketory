@@ -39,7 +39,7 @@
   
         <ion-row class="box" *ngFor="let item of detailsArray">
 
-          <ion-col col-12 class="gra-bg"><span class="span1">Buyer Info:</span> <span class="span2" >{{item.order.user.first_name}} {{item.order.user.last_name}}</span></ion-col>
+          <!-- <ion-col col-12 class="gra-bg"><span class="span1">Buyer Info:</span> <span class="span2" >{{item.order.user.first_name}} {{item.order.user.last_name}}</span></ion-col> -->
           <ion-col col-12 class="gra-bg">
 
               <span>Shipping Address: {{item.order.shipping_address}}</span>
@@ -48,7 +48,7 @@
              
               </ion-col>
             <ion-col col-4 class="image-w">
-                  <img *ngIf="item.gear.upload" alt="" src="{{productImagePath+item.gear.upload}}">
+                  <img *ngIf="item.gear.upload" alt="" src="assets/imgs/camera.png">
             </ion-col>
 
             <ion-col col-8>
