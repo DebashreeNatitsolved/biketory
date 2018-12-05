@@ -62,18 +62,18 @@
 	</ion-toolbar>
 	
 	<ion-navbar *ngIf="!showSearchbar">
-	<ion-title style="text-align: center;">Bike search</ion-title>
+	<ion-title style="text-align: center;">Result</ion-title>
 	<ion-buttons end >
-		<button  ion-button icon-only (click)="toggleSearchbar()">
+		<!-- <button  ion-button icon-only (click)="toggleSearchbar()">
 		  <ion-icon name="search"></ion-icon>
 		</button>
-		<button ion-button icon-only (click)="goToCartPage()"><ion-icon name="cart"></ion-icon></button>
+		<button ion-button icon-only (click)="goToCartPage()"><ion-icon name="cart"></ion-icon></button> -->
 	  </ion-buttons>
   </ion-navbar>
 	<ion-grid class="filter-bar p-0">
 		<ion-row>
 			<ion-col col-6 class="p-0"><button ion-button block color="light" (click)="filtr()"><img src="../../assets/imgs/icon-filter.png" alt=""> Filter</button></ion-col>
-			<ion-col col-6 class="p-0"><button ion-button block color="light" (click)="sort()"><img src="../../assets/imgs/icon-sort.png" alt=""> Sort By Price</button></ion-col>
+			<ion-col col-6 class="p-0"><button ion-button block color="light" (click)="sort()"><img src="../../assets/imgs/icon-sort.png" alt="">Sort By</button></ion-col>
 		</ion-row>
 	</ion-grid>
 </ion-header>
@@ -88,14 +88,15 @@
 				<img *ngIf="item.productsimages.length != 0" src="{{imagelink + item.productsimages[0].name}}" alt="">
 				<img *ngIf="item.productsimages.length == 0" src="assets/imgs/camera.png" alt="">
 			</ion-thumbnail>
-		<ion-card-content>
-			<h6>{{item.reg_number}}</h6>
+		<ion-card-content class="text-field">
+			<h4>{{item.reg_number}}</h4>
 			<p class="price">$ {{item.price}}</p>
-		</ion-card-content>
-		<ion-card-content>
-				<p *ngIf="item.Bikemodels"><span>Model :</span> {{item.Bikemodels.model_name}}</p>
+			<div>
+					<p *ngIf="item.Bikemodels"><span>Model :</span> {{item.Bikemodels.model_name}}</p>
 					<p *ngIf="item.Makes"><span>Make :</span>{{item.Makes.make_name}}</p>
+			</div>
 		</ion-card-content>
+		
 	</ion-card> 
 	</ion-list>
 	

@@ -249,6 +249,12 @@ public mywishlist()
   this.nav.push('FabouritePage');
 }
 
+public about()
+{
+  this.nav.push('AboutPage');
+}
+
+
 
 public recentView()
 {
