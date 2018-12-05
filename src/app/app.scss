@@ -121,7 +121,7 @@ src: url('../assets/fonts/calibribold.eot?#iefix') format('embedded-opentype'), 
 	
 	
 	
-	body, h1,h2,h3,h4,h5,h6,p,b,span,label,input,.label, .select-text, a, li, .segment-button, .toolbar-title, div{font-family: 'calibri-regular', sans-serif;}
+	body, h1,h2,h3,h4,h5,h6,p,b,span,label,input,.label, .select-text, a, li, .segment-button, .toolbar-title, div{font-family: 'calibri-regular', sans-serif;white-space: normal;}
 	.button-md{text-transform: none;height:2.8em; font-family: 'calibri-regular', sans-serif; font-size:1.6rem}
 	.button-ios{text-transform: none;height:2.8em; font-family: 'calibri-regular', sans-serif; font-size:1.6rem}
 	.item-md,.item-ios{font-size:1.6rem}
@@ -165,6 +165,9 @@ src: url('../assets/fonts/calibribold.eot?#iefix') format('embedded-opentype'), 
 	.m-b-20{margin-bottom: 20px !important;}
 	.w-100{width:100% !important;}
   
+  ion-footer .toolbar{
+    min-height: auto;
+  }
  	ion-header .toolbar-background{ background-color: #1e1e1f;}
  	ion-footer .toolbar-background{ background-color: #f4f4f4;}
 	.bar-button-default{color: #fff; }
@@ -183,7 +186,7 @@ src: url('../assets/fonts/calibribold.eot?#iefix') format('embedded-opentype'), 
   /*------------------Custom Tabs ------------------------*/
 .tabs-sell{width: 100%;}
 .tabs-sell ul{padding: 0;	margin: 0;display: flex;justify-content: center;align-items: center; 
-  position: relative; }
+  position: relative; justify-content: space-around;}
 .tabs-sell ul li{
   float: left;	
   list-style-type: none;	
@@ -212,7 +215,9 @@ src: url('../assets/fonts/calibribold.eot?#iefix') format('embedded-opentype'), 
 	align-items: center;
 	margin: 0 auto ;
 }
-
+.tabs-sell ul li .icon img{
+  margin-top: 3px;
+}
 .Bike{
  width: 19px!important; 
 }
@@ -220,13 +225,15 @@ src: url('../assets/fonts/calibribold.eot?#iefix') format('embedded-opentype'), 
   width: 15px;
   height: 15px;
   position: absolute;
-  top: 0;
-  right: 22px;
+  top: 1px;
+  right: 32px;
   background: red;
   color: #fff;
   font-size: 12px;
   border-radius: 50px;
-  text-align: center;
+  display: flex;
+    align-items: center;
+    justify-content: center;
   line-height: 18px;
 }
 

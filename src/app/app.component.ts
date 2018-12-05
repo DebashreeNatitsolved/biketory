@@ -200,6 +200,12 @@ export class MyApp {
 
   }
 
+public about()
+{
+  this.nav.push('AboutPage');
+}
+
+
 
   public myorder() {
     if (this.istype == 1) {
