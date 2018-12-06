@@ -11,19 +11,38 @@ page-search-gear {
 	.filter-bar ion-col:first-child {border-right:1px solid #e1e1e1;}
 	
 	.flex-wrapper .scroll-content{display:flex; flex-wrap:wrap; padding:6px}
-	.product-holder{border:1px solid #ececec; box-shadow:none; width:47% !important; margin:1.5%!important}
-	.product-holder img{height:120px}
-	.product-holder .card-content{padding:6px; border-top:1px solid #ececec;}
-	.product-holder h6{font-family: 'calibribold'; }
-	.product-holder .price{font-family: 'calibribold'; color:#f56f30; font-size:1.2rem}
-	.product-holder .model{color:#595959; font-size:1.15rem}
-	
-	.button-holder .button{box-shadow:none; font-size:1.15rem; height:2.4rem;  margin-top:0; margin-bottom:0}
-
-	.unknown
-	{
-max-width: 82% !important;
+	.product-holder{
+		border:1px solid #c6c5c5; 
+		box-shadow:none; 
+		width:100% !important; 
+		margin:1.5%!important;
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
 	}
+	.product-holder img{
+		height:100%;
+		width: 100%;
+	object-fit: cover;
+	}
+	.product-holder .card-content{
+		// padding:6px; 
+		// border-top:1px solid #ececec;
+	}
+	.product-holder h6{font-family: 'calibribold'; }
+	.product-holder .price{font-family: 'calibribold'; color:#f56f30; font-size:15px;}
+	.product-holder .model{color:#595959; font-size:1.15rem}
 
-	.list-flex{ display: flex; flex-wrap: wrap; }
+	 .list-flex{ display: flex; flex-wrap: wrap; }
+	 .text-field h4{
+		 font-size: 20px;
+		 font-weight: 600;
+	 }
+	 .text-field{
+		padding: 5px 10px 5px 17px;
+		width: 75%;
+	}
+	.red{
+		color: red;
+	}
 }

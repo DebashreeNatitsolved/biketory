@@ -29,12 +29,18 @@
 			<form [formGroup]="form" (ngSubmit)="bikesearch(form.value)" #BkForm="ngForm">
 			<p class="heading">Keyword Serch</p>
 			<ion-list class="m-b-10">
-				<ion-item class="pl-0">
+				<!-- <ion-item class="pl-0">
 					
 			<ion-input type="text" value="" formControlName="ser_val"  placeholder="Search By Keyword"></ion-input>
-			</ion-item>
+			</ion-item> -->
+			<ion-item class="input-field" class="border p-0">
+				<ion-label fixed class="mr-0">
+					<ion-icon name="search"></ion-icon>
+					</ion-label>
+					<ion-input type="text" value="" formControlName="ser_val" placeholder="Search"></ion-input>
+				</ion-item>
 			</ion-list>
-			<h6 class="sub-title">Options</h6>
+			<!-- <h6 class="sub-title">Options</h6> -->
 			<p class="heading">Postal Code</p>
 			<ion-list class="m-b-10">
 				<ion-item class="pl-0">
@@ -53,9 +59,9 @@
 			<p class="heading">Distance</p>
 			<ion-list class="m-b-10">
 				<ion-item class="pl-0">
-					<ion-label>Nationwide</ion-label>
+					<ion-label>Select</ion-label>
 					<ion-select formControlName="distance">
-							<ion-option *ngFor="let item of distancearray" >{{item}}</ion-option>
+							<!-- <ion-option *ngFor="let item of distancearray" >{{item}}</ion-option> -->
 						
 					</ion-select>
 				</ion-item>
@@ -65,7 +71,7 @@
 			<p class="heading">Make</p>
 			<ion-list class="m-b-10">
 				<ion-item class="pl-0">
-					<ion-label>Make</ion-label>
+					<ion-label>Select</ion-label>
 					<ion-select formControlName="make_id">
 							<ion-option *ngFor="let item of make" value="{{item.id}}">{{item.make_name}}</ion-option>
 						
@@ -76,15 +82,51 @@
 			<p class="heading">Model</p>
 			<ion-list class="m-b-10">
 				<ion-item class="pl-0">
-					<ion-label>Model</ion-label>
+					<ion-label>Select</ion-label>
 					<ion-select formControlName="model_id">
 							<ion-option  *ngFor="let item of model" value="{{item.id}}">{{item.model_name}}</ion-option>
 					</ion-select>
 				</ion-item>
 			</ion-list>
-			<p class="heading">Price</p>
+
+			<p class="heading">Color</p>
 			<ion-list class="m-b-10">
 				<ion-item class="pl-0">
+					<ion-label>Color</ion-label>
+					<ion-select formControlName="color">
+							<ion-option *ngFor="let item of colour" value="{{item.id}}">{{item.name}}</ion-option>
+						  </ion-select>
+				</ion-item>
+			</ion-list>
+
+
+			<p class="heading">Type</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0">
+					<ion-label>Select</ion-label>
+					<ion-select formControlName="color">
+							<ion-option *ngFor="let item of colour" value="{{item.id}}">{{item.name}}</ion-option>
+						  </ion-select>
+				</ion-item>
+			</ion-list>
+
+			<p class="heading">Engine Capacity</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0 w-50">
+					<ion-label>Min CC</ion-label>
+					<ion-input type="text" value="" formControlName="min_cc"  placeholder="Search By Min price"></ion-input>
+					
+				</ion-item>
+				<ion-item class="pl-0 w-50">
+					<ion-label>Max CC</ion-label>
+					<ion-input type="text" value="" formControlName="max_cc"  placeholder="Search By Max Price"></ion-input>
+				</ion-item>				
+			</ion-list>
+
+
+			<p class="heading">Price</p>
+			<ion-list class="m-b-10">
+				<ion-item class="pl-0 w-50">
 					<ion-label>Min </ion-label>
 					<ion-input type="text" value="" formControlName="min_price"  placeholder="Search By Min price"></ion-input>
 					<!-- <ion-select>
@@ -92,8 +134,8 @@
 						<ion-option value="">$2</ion-option>
 					</ion-select> -->
 				</ion-item>
-				<ion-item class="pl-0">
-					<ion-label>Max TL</ion-label>
+				<ion-item class="pl-0 w-50">
+					<ion-label>Max </ion-label>
 					<ion-input type="text" value="" formControlName="max_price"  placeholder="Search By Max Price"></ion-input>
 					<!-- <ion-select>
 						<ion-option value="">$10</ion-option>
@@ -108,28 +150,16 @@
 					</ion-select>
 				</ion-item> -->
 			</ion-list>
-			<p class="heading">Engine Capacity</p>
-			<ion-list class="m-b-10">
-				<ion-item class="pl-0">
-					<ion-label>Min CC</ion-label>
-					<ion-input type="text" value="" formControlName="min_cc"  placeholder="Search By Min price"></ion-input>
-					
-				</ion-item>
-				<ion-item class="pl-0">
-					<ion-label>Max CC</ion-label>
-					<ion-input type="text" value="" formControlName="max_cc"  placeholder="Search By Max Price"></ion-input>
-				</ion-item>
-				
-			</ion-list>
+			
 
-			<p class="heading">Make year</p>
+			<p class="heading">Year</p>
 			<ion-list class="m-b-10">
-				<ion-item class="pl-0">
+				<ion-item class="pl-0 w-50">
 					<ion-label>Min </ion-label>
 					<ion-input type="text" value="" formControlName="min_year"  placeholder="Search By Min price"></ion-input>
 					
 				</ion-item>
-				<ion-item class="pl-0">
+				<ion-item class="pl-0 w-50">
 					<ion-label>Max </ion-label>
 					<ion-input type="text" value="" formControlName="max_year"  placeholder="Search By Max Price"></ion-input>
 				</ion-item>
@@ -137,28 +167,20 @@
 			</ion-list>
 			<p class="heading">Mileage</p>
 			<ion-list class="m-b-10">
-				<ion-item class="pl-0">
+				<ion-item class="pl-0 w-50">
 					<ion-label>Min </ion-label>
 					<ion-input type="text" value="" formControlName="min_milage" placeholder="Search By Min price"></ion-input>
 					
 				</ion-item>
-				<ion-item class="pl-0">
+				<ion-item class="pl-0 w-50">
 					<ion-label>Max </ion-label>
 					<ion-input type="text" value="" formControlName="max_milage"  placeholder="Search By Max Price"></ion-input>
 				</ion-item>
 				
 			</ion-list>
 
-			<p class="heading">Color</p>
-			<ion-list class="m-b-10">
-				<ion-item class="pl-0">
-					<ion-label>Color</ion-label>
-					<ion-select formControlName="color">
-							<ion-option *ngFor="let item of colour" value="{{item.id}}">{{item.name}}</ion-option>
-						  </ion-select>
-				</ion-item>
-			</ion-list>
-			<p class="heading">Post By</p>
+			
+			<!-- <p class="heading">Post By</p>
 			<ion-list class="m-b-10">
 				<ion-item class="pl-0">
 					<ion-label>Post By</ion-label>
@@ -167,13 +189,14 @@
 						<ion-option value="T">Trade</ion-option>
 					</ion-select>
 				</ion-item>
-			</ion-list>
-			<p class="heading">Fuel Type</p>
+			</ion-list> -->
+
+			<p class="heading">Seller Type</p>
 			<ion-list class="m-b-10">
 				<ion-item class="pl-0">
-					<ion-label>Fuel Type</ion-label>
+					<ion-label>Select</ion-label>
 					<ion-select formControlName="fuel_tpe">
-							<ion-option value="">Any</ion-option>
+							<!-- <ion-option value="">Any</ion-option> -->
 						<ion-option value="P">Petrol</ion-option>
 						<ion-option value="D">Diesel</ion-option>
 						<ion-option value="E">Electric</ion-option>

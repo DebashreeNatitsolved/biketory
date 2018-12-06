@@ -7,7 +7,7 @@
       <ion-header>
         <ion-item class="side-bar-header" *ngIf="user_exist==1">
           <ion-thumbnail item-start>
-            <img src="assets/imgs/avtar.png">
+            <img src="assets/imgs/avtar1.png">
           </ion-thumbnail>
 
           <h2>{{firstname}}</h2>
@@ -60,28 +60,54 @@
 				</ion-item>
 
 				<ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright"  name="contact"  item-start></ion-icon>
-		My Account
-	</ion-item>
-	<ion-item-group submenu [class.visible]="showSubmenu" *ngIf="user_exist==1">
+					My Account
+				</ion-item>
+
+				<ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright"  name="heart"  item-start></ion-icon>
+					Wishlist
+			</ion-item>
+	<!-- <ion-item-group submenu [class.visible]="showSubmenu" *ngIf="user_exist==1">
     	<ion-item menuClose  submenu-item class="padding-left-50" (click)="mywishlist()" > <ion-icon class="mt-5" name="heart" ></ion-icon> Wishlist</ion-item>
 		<ion-item menuClose  submenu-item class="padding-left-50" (click)="mylistedbikes()" > <ion-icon class="mt-5" name="heart" ></ion-icon> Listed Bikes</ion-item>
 		<ion-item menuClose  submenu-item class="padding-left-50" (click)="mylistedgears()" > <ion-icon class="mt-5" name="heart" ></ion-icon> Listed Gears</ion-item>
 		<ion-item submenu-item  menuClose class="padding-left-50" (click)="recentView()"> <ion-icon class="mt-5"  name="eye"></ion-icon> Recently Viewed</ion-item>
 		<ion-item  menuClose (click)="myorder()"submenu-item class="padding-left-50"> <ion-icon class="mt-5" name="list-box"></ion-icon>  Order History</ion-item>
-  </ion-item-group>
+  </ion-item-group> -->
 
-	<ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright" name="mail" item-start></ion-icon>
-		Communication
+	<ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright" name="basket" item-start></ion-icon>
+		Sell Bike
 	</ion-item>
-	<ion-item-group submenu [class.visible]="showSubmenu" *ngIf="user_exist==1">
-    	<ion-item submenu-item class="padding-left-50"> <ion-icon class="mt-5" name="archive"></ion-icon> Inbox</ion-item>
-		<ion-item submenu-item class="padding-left-50"> <ion-icon class="mt-5" name="chatboxes"></ion-icon>  Chat Box</ion-item>
+	<ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright" name="bicycle" item-start></ion-icon>
+		Listed Bike
+	</ion-item>
+	<ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright" name="basket" item-start></ion-icon>
+		Sell Gear
+	</ion-item>
+	<ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright" name="apps" item-start></ion-icon>
+		Listed Gear
+	</ion-item>
+	<ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright" name="mail" item-start></ion-icon>
+		Messages
+	</ion-item>
+	<ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright" name="chatbubbles" item-start></ion-icon>
+		Chat Inbox
+	</ion-item>
+	<ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright" name="create" item-start></ion-icon>
+		Edit Profile
+	</ion-item>
+	<ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright" name="shuffle" item-start></ion-icon>
+		Change Password
+	</ion-item>
+
+	<!-- <ion-item-group submenu [class.visible]="showSubmenu" *ngIf="user_exist==1">
+    	<ion-item submenu-item class="padding-left-50"> <ion-icon class="mt-5" name="archive"></ion-icon> Listed Bike</ion-item>
+		<ion-item submenu-item class="padding-left-50"> <ion-icon class="mt-5" name="chatboxes"></ion-icon>  Sell Gear</ion-item>
 		
-  </ion-item-group>
+  </ion-item-group> -->
 
 
 
-	<ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright" name="settings" item-start></ion-icon>
+	<!-- <ion-item menuClose (click)="seller_profile()"  *ngIf="user_exist==1"> <ion-icon class="marginright" name="settings" item-start></ion-icon>
 		Settings
 	</ion-item>
 
@@ -89,7 +115,7 @@
     	<ion-item menuClose (click)="goToEditPage()" submenu-item class="padding-left-50"> <ion-icon class="mt-5" name="create"></ion-icon> Edit Profile</ion-item>
 		<ion-item menuClose (click)="change_password()" submenu-item class="padding-left-50"> <ion-icon class="mt-5" name="create"></ion-icon> Change Password</ion-item>
 		
-  </ion-item-group>
+  </ion-item-group> -->
 
 
 			<ion-item menuClose (click)="logout()" *ngIf="user_exist==1">
