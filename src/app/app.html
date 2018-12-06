@@ -12,7 +12,7 @@
 
           <h2>{{firstname}}</h2>
 		  
-		  </ion-thumbnail>
+		  
         </ion-item>
       </ion-header>
      
@@ -35,7 +35,7 @@
 		<ion-item menuClose   *ngIf="user_exist==0"> <ion-icon class="marginright" name="information-circle" item-start></ion-icon>
 			About
 	 </ion-item>
-	 <ion-item menuClose  *ngIf="user_exist==0"> <ion-icon class="marginright"  name="help-circle" item-start></ion-icon>
+	 <ion-item menuClose  *ngIf="user_exist==0" (click)="faq()"> <ion-icon class="marginright"  name="help-circle" item-start></ion-icon>
 		FAQ
  </ion-item>
 
@@ -43,44 +43,15 @@
 	Promotions & News
 </ion-item>
 
-<ion-item menuClose   *ngIf="user_exist==0"> <ion-icon class="marginright" name="lock" item-start></ion-icon>
+<ion-item menuClose   *ngIf="user_exist==0" (click)="privacyPolicy()"> <ion-icon class="marginright" name="lock" item-start></ion-icon>
 	Privacy Policy
 </ion-item>
 
-<ion-item menuClose  *ngIf="user_exist==0"> <ion-icon class="marginright" name="list-box"  item-start></ion-icon>
+<ion-item menuClose  *ngIf="user_exist==0" (click)="termsAndCond()"> <ion-icon class="marginright" name="list-box"  item-start></ion-icon>
 	Terms & Condidtions
 </ion-item>
 
 
-
-
-
-
-
-
-		
-	 <!-- <ion-item menuClose (click)="change_password()"> <ion-icon class="marginright" name="create" item-start></ion-icon>
-	Change Password
- </ion-item>
-
-			<ion-item menuClose *ngIf="istype==2" (click)="post()"> <ion-icon class="marginright" name="list-box" item-start></ion-icon>
-				 My Post
-			</ion-item>
-			<ion-item menuClose *ngIf="istype==2" (click)="mygear()"><ion-icon class="marginright"  name="cog" item-start></ion-icon>
-				My Gear
-		 </ion-item>
-		 <ion-item menuClose *ngIf="ist	ype==1" (click)="mycart()" ><ion-icon class="marginright" name="cart" item-start></ion-icon>
-				My Cart
-		 </ion-item>
-		 <ion-item menuClose (click)="myorder()" ><ion-icon class="marginright" name="cube" item-start></ion-icon>
-			My Order
-	 </ion-item>
-
-	 	 <ion-item menuClose *ngIf="istype==1" (click)="mywishlist()"><ion-icon class="marginright" name="heart" item-start></ion-icon>
-			My Wishlist
-	 </ion-item> -->
-
-		
 	 
 	
 	
@@ -129,7 +100,7 @@
 					<ion-item menuClose   *ngIf="user_exist==1"> <ion-icon class="marginright" name="information-circle" item-start></ion-icon>
 						About
 				 </ion-item>
-				 <ion-item menuClose  *ngIf="user_exist==1"> <ion-icon class="marginright" name="help-circle" item-start></ion-icon>
+				 <ion-item menuClose  *ngIf="user_exist==1" (click)="faq()"> <ion-icon class="marginright" name="help-circle" item-start></ion-icon>
 					FAQ
 			 </ion-item>
 			
@@ -137,11 +108,11 @@
 				Promotions & News
 			</ion-item>
 			
-			<ion-item menuClose   *ngIf="user_exist==1"> <ion-icon class="marginright" name="lock" item-start></ion-icon>
+			<ion-item menuClose   *ngIf="user_exist==1" (click)="privacyPolicy()"> <ion-icon class="marginright" name="lock" item-start></ion-icon>
 				Privacy Policy
 			</ion-item>
 			
-			<ion-item menuClose  *ngIf="user_exist==1"> <ion-icon class="marginright" name="list-box" item-start></ion-icon>
+			<ion-item menuClose  *ngIf="user_exist==1" (click)="termsAndCond()"> <ion-icon class="marginright" name="list-box" item-start></ion-icon>
 				Terms & Condidtions
 			</ion-item>
 			
