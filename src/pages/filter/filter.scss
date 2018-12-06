@@ -5,7 +5,7 @@ page-filter {
 	.options-wrap{padding:10px}
 	.options-wrap .item .item-inner{padding-left:8px;}
 	.options-wrap ion-label.label{font-size:1.3rem; margin-top:5px; margin-bottom:5px}
-	.options-wrap ion-input .text-input{font-size:1.3rem; margin:5px 0;}
+	.options-wrap ion-input .text-input{font-size:1.3rem; margin:5px 0; text-overflow: ellipsis;}
 	.options-wrap ion-select.select{padding-top:5px; padding-bottom:5px}
 	ion-item.item{border:1px solid #e1e1e1; min-height:3.2rem !important; border-radius:2px; margin-bottom:10px}
 	.heading{font-size:1.2rem; margin-bottom:8px; font-weight:500}
@@ -15,4 +15,19 @@ page-filter {
 	.custom-checkbox.item{padding-left:0; height:20px; min-height:auto; border:0; margin-bottom:0}
 	.custom-checkbox.item .checkbox {margin-right:5px; margin-left:0}
 	.custom-checkbox.item ion-label.label{font-size:1.3rem!important; color:#888888; margin: 0}
+
+	.search-wrapper ion-item{border:1px solid #d2d2d2; border-radius:50px; }
+	ion-label[fixed] {-webkit-box-flex: 0;-webkit-flex: 0 0 100px; -ms-flex: 0 0 50px; flex: 0 0 18px; width: 18px; min-width: 15px;  max-width: 20px; margin-top:5px; margin-bottom:5px}
+	.text-input{margin-top:5px; margin-bottom:5px}
+	.w-50{
+		width: 48%;
+		display: inline-flex;
+	}
+	.item-inner{
+		padding: 0;
+	}
+	ion-list{
+		display: flex;
+		justify-content: space-between;
+	}
 }

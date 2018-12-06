@@ -84,18 +84,26 @@
 	<ion-list class="list-flex" *ngIf="bikelists!=''">
 	 <ion-card class="ml-0 mr-0 mt-0 w-100 product-holder" *ngFor="let item of bikelists" (click)="bikedetails(item.id)">
 		<!-- <img src="assets/imgs/motor-cycle.jpg" alt=""> -->
-		<ion-thumbnail item-start>
+	<ion-row>
+		<ion-col col-4 class="p-0">
 				<img *ngIf="item.productsimages.length != 0" src="{{imagelink + item.productsimages[0].name}}" alt="">
-				<img *ngIf="item.productsimages.length == 0" src="assets/imgs/camera.png" alt="">
-			</ion-thumbnail>
-		<ion-card-content class="text-field">
+				<img *ngIf="item.productsimages.length == 0" src="assets/imgs/vehicle-1.jpg" alt="">
+		</ion-col>
+		<ion-col  col-8 class="text-field">
 			<h4>{{item.reg_number}}</h4>
-			<p class="price">$ {{item.price}}</p>
+			<p class="price">Price: $ {{item.price}}</p>
+			<h6>Seller Type: (Trade or Private)</h6>
+
 			<div>
 					<p *ngIf="item.Bikemodels"><span>Model :</span> {{item.Bikemodels.model_name}}</p>
 					<p *ngIf="item.Makes"><span>Make :</span>{{item.Makes.make_name}}</p>
 			</div>
-		</ion-card-content>
+			<div>
+				<ion-icon class="marginright" name="thumbs-up" item-start></ion-icon>
+				<!-- <ion-icon class="marginright red" name="heart" item-start></ion-icon> -->
+			</div>
+		</ion-col>
+	</ion-row>
 		
 	</ion-card> 
 	</ion-list>

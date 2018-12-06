@@ -41,7 +41,7 @@
 
           <a (click)="editProfilePic()" class="user-edit"><ion-icon name="create"></ion-icon></a>
           <div class="avatar" *ngIf="!pathForImage(lastImage)">
-            <img src="assets/imgs/avtar.png" alt="">
+            <img src="assets/imgs/avtar1.png" alt="">
           </div>
 
           <div class="avatar" *ngIf="pathForImage(lastImage)">
@@ -58,7 +58,7 @@
                <b >{{user_details.phone}}</b> Verified <img src="assets/imgs/verified.png" alt="" class="verify"/>
               
               <span>
-                <button ion-button round block start style="width: 51px;" (click)="goToEditPage()"><ion-icon name="create"></ion-icon>Edit</button>
+                <button ion-button round block start style="width: 58px;" (click)="goToEditPage()"><ion-icon name="create" style="padding-right: 5px;font-size: 13px;"></ion-icon>Edit</button>
               </span>
             </p>
           </div>
@@ -82,7 +82,7 @@
                     <img *ngIf="item.productsimages.length > 0" src="{{productImgPath+item.productsimages[0].name}}" alt="">
                   
                     <img *ngIf="item.productsimages.length == 0"  src="assets/imgs/camera.png" alt="">
-                    <ion-card-content>
+                    <ion-card-content style="background: #f0f0f0;">
                       <h6>{{item.reg_number}}</h6>
                       <p class="price">Price: ${{item.price}}.00</p>
                     </ion-card-content>

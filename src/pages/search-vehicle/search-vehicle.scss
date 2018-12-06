@@ -12,37 +12,42 @@ page-search-vehicle {
 	
 	.flex-wrapper .scroll-content{ padding:6px}
 	.product-holder{
-		border:1px solid #c6c5c5; 
+		border:1px solid #ababab; 
 		box-shadow:none; 
 		width:100% !important; 
 		margin:1.5%!important;
 		display: flex;
 		justify-content: flex-start;
 		align-items: flex-start;
-		padding: 10px;
 	}
 	.product-holder img{
-		height:120px;
-		width: 130px;
-    border: 5px solid #ebeaea;
-    object-fit: cover;
+		height:100%;
+		width: 100%;
+	object-fit: cover;
 	}
 	.product-holder .card-content{
 		// padding:6px; 
 		// border-top:1px solid #ececec;
 	}
 	.product-holder h6{font-family: 'calibribold'; }
-	.product-holder .price{font-family: 'calibribold'; color:#f56f30; font-size:14px;}
+	.product-holder .price{font-family: 'calibribold'; color:#f56f30; font-size:15px;}
 	.product-holder .model{color:#595959; font-size:1.15rem}
 
 	 .list-flex{ display: flex; flex-wrap: wrap; }
 	 .text-field h4{
 		 font-size: 20px;
 		 font-weight: 600;
+	
 	 }
 	 .text-field{
-		padding: 5px 10px;
+		padding: 5px 10px 5px 17px;
+		width: 75%;
+		background: #e7e7e7;
 	}
+	.red{
+		color: red;
+	}
+
 	// .list-flex .product-holder{ height: }
 	
 }

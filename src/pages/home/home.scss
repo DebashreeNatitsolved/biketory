@@ -10,7 +10,7 @@ page-home {
 	
 	.search-bike{background:#f4f4f4; box-shadow:none; text-align:center}
 	.search-bike h2, .shop-gear h2{font-size:1.8rem; font-family: 'calibribold'; text-transform:uppercase; margin-bottom: 10px}
-	.search-bike .button{box-shadow:none;}
+	.search-bike .button{box-shadow:none;display: flex;align-items: center;}
 
 	.shop-gear{background:#fff; box-shadow:none; text-align:center}
 	
@@ -30,16 +30,26 @@ page-home {
 		height: 20px;
 		border-radius: 50px;
 		text-align: center;
-		line-height: 20px;
+		display:inline-flex;
+		align-items: center;
+		justify-content: center;
+		line-height: 18px;
 		border: #f06421 1px solid;
 		/* margin-top: 10px; */
-		font-size: 12px;
+		font-size: 14px;
 	}
 
+	.round2 ion-icon{
+		// display: flex;
+		// justify-content: center;
+		// align-items: center;
+	}
 	.padding8{
 		padding:8px;
 	}
-
+	.select-text{
+		margin: auto;
+	}
 
 	// .p-0 {margin-bottom: 64px;}
 
@@ -60,8 +70,10 @@ page-home {
 	}
 
 .btnSearch{
-height:40px;
+height:2.8em;
 background-color: gray;
+display: flex;
+align-items: center;
 }
 
 .border
@@ -88,7 +100,7 @@ background-color: gray;
 .btnMenu{
 	height:90px;
 }
-	.logo{width:100px; height: auto;margin: 7px 0 0 15px;}
+	.logo{width:115px; height: auto;margin: 7px 0 0 4px;}
 
 	.cart-g{
 		position: relative;
