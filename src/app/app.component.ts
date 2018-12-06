@@ -163,6 +163,22 @@ export class MyApp {
     this.nav.push('ListedGearsPage')
   }
 
+  public termsAndCond()
+  {
+    this.nav.push ('TermsConditionsPage')
+  }
+
+  public faq()
+  {
+    this.nav.push ('FaqPage')
+  }
+
+  public privacyPolicy()
+  {
+    this.nav.push ('PrivacyPolicyPage')
+  }
+  
+
   public gogear() {
 
     if (this.user_exist == 0) {
